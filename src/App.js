@@ -33,9 +33,7 @@ function App() {
             fontWeight: "bold",
             color: "blue",
           }}
-          to='/login'>
-          Login
-        </NavLink>
+          to='/login'></NavLink>
       </nav>
       <Switch>
         <Route exact path='/' component={Home} />
