@@ -5,6 +5,7 @@ import "./App.css";
 import "./components/Home";
 import "./components/OurServices";
 import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
 
 import Home from "./components/Home";
 import OurServices from "./components/OurServices";
@@ -41,10 +42,9 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
 
-        {/* <Route path='/signup' component={SignUp} />
-        <Route path='/login' component={Login} /> */}
-        <Route path='/ourservices' component={OurServices} />
+        <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} />
+        <Route path='/ourservices' component={OurServices} />
       </Switch>
     </div>
   );
