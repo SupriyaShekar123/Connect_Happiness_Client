@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from "react";
 
-//import { login } from "../../store/user/actions";
-//import { selectToken } from "../../store/user/selectors";
-//import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-//import { Col } from "react-bootstrap";
+import { login } from "../../store/user/actions";
+import { selectToken } from "../../store/user/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const dispatch = useDispatch();
-  //const token = useSelector(selectToken);
-  //const history = useHistory();
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+  const history = useHistory();
 
-  //   useEffect(() => {
-  //     if (token !== null) {
-  //       history.push("/");
-  //     }
-  //   }, [token, history]);
+  useEffect(() => {
+    if (token !== null) {
+      history.push("/");
+    }
+  }, [token, history]);
 
   function submitForm(event) {
     console.log("hi");
     event.preventDefault();
 
-    //dispatch(login(email, password));
+    dispatch(login(email, password));
 
     setEmail("");
     setPassword("");
