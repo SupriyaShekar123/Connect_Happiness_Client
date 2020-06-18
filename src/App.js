@@ -4,6 +4,7 @@ import { Switch, Route, NavLink } from "react-router-dom";
 import "./App.css";
 import "./components/Home";
 import "./components/OurServices";
+import Login from "./pages/Login";
 
 import Home from "./components/Home";
 import OurServices from "./components/OurServices";
@@ -33,7 +34,9 @@ function App() {
             fontWeight: "bold",
             color: "blue",
           }}
-          to='/login'></NavLink>
+          to='/login'>
+          Login
+        </NavLink>
       </nav>
       <Switch>
         <Route exact path='/' component={Home} />
@@ -41,6 +44,7 @@ function App() {
         {/* <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} /> */}
         <Route path='/ourservices' component={OurServices} />
+        <Route path='/login' component={Login} />
       </Switch>
     </div>
   );
