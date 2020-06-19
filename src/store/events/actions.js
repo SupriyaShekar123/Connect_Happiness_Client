@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function getEventsLists(dispatch, getstate) {
-  dispatch({ type: "ARTLISTS_LOADING" });
+  dispatch({ type: "EVENTS_LOADING" });
   try {
     const response = await axios.get("http://localhost:4000/events");
     console.log("THE RESPONSE ", response.data);

@@ -23,6 +23,7 @@ import { getUserWithStoredToken } from "./store/user/actions";
 
 import Home from "./components/Home";
 import OurServices from "./components/OurServices";
+import EventsDetails from "./components/EventsDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,6 +72,7 @@ function App() {
         <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} />
         <Route path='/ourservices' component={OurServices} />
+        <Route path='/events/:id' component={EventsDetails} />
       </Switch>
     </div>
   );

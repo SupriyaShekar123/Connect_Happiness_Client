@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         ...state,
 
         loading: true,
-        lists: action.payload,
+        events: action.payload,
       };
     }
     case "EVENTS_ERROR": {
