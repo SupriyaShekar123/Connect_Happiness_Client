@@ -20,6 +20,7 @@ import Login from "./pages/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
+//import SSEClient from "./components/SSEClient";
 
 import Home from "./components/Home";
 import OurServices from "./components/OurServices";
@@ -29,6 +30,10 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
 
+  // const evtSource = new EventSource("http://localhost:4000/stream");
+  // evtSource.onmessage = function (e) {
+  //   console.log(e.data);
+  // };
   useEffect(() => {
     dispatch(getUserWithStoredToken());
   }, [dispatch]);
