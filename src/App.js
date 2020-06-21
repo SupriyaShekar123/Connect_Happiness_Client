@@ -25,6 +25,7 @@ import { getUserWithStoredToken } from "./store/user/actions";
 import Home from "./components/Home";
 import OurServices from "./components/OurServices";
 import EventsDetails from "./components/EventsDetails";
+import ShoppingLists from "./components/ShoppingLists";
 
 function App() {
   const dispatch = useDispatch();
@@ -65,6 +66,14 @@ function App() {
           to='/login'>
           Login
         </NavLink>
+        <NavLink
+          activeStyle={{
+            fontWeight: "bold",
+            color: "blue",
+          }}
+          to='/shopping'>
+          Shopping
+        </NavLink>
       </nav>
 
       <Navigation />
@@ -78,6 +87,7 @@ function App() {
         <Route path='/login' component={Login} />
         <Route path='/ourservices' component={OurServices} />
         <Route path='/events/:id' component={EventsDetails} />
+        <Route path='/shopping' component={ShoppingLists} />
       </Switch>
     </div>
   );
