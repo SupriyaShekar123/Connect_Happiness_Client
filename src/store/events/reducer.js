@@ -1,6 +1,7 @@
 const initialState = {
   loading: true,
   events: [],
+  shopping: [],
 };
 
 export default (state = initialState, action) => {
@@ -25,6 +26,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+      };
+    }
+    case "LISTS_SUCCESS": {
+      return {
+        ...state,
+        shopping: action.payload,
       };
     }
     default:

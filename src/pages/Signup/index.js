@@ -80,6 +80,7 @@ export default function SignUp() {
       roles: roleValues,
     };
 
+    console.log("SINGN UP DATA ", singupData);
     dispatch(signUp(singupData));
 
     setEmail("");
