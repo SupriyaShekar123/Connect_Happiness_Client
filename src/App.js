@@ -20,12 +20,14 @@ import Login from "./pages/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-//import SSEClient from "./components/SSEClient";
+import SSEClient from "./components/SSEClient";
 
 import Home from "./components/Home";
 import OurServices from "./components/OurServices";
 import EventsDetails from "./components/EventsDetails";
 import ShoppingLists from "./components/ShoppingLists";
+import ShoppingDetails from "./components/ShoppingDetails";
+import ShoppingLisData from "./components/ShoppingLisData";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +43,7 @@ function App() {
 
   return (
     <div className='App'>
+      <SSEClient />
       <nav>
         <NavLink
           activeStyle={{
@@ -74,13 +77,23 @@ function App() {
           to='/shopping'>
           Shopping
         </NavLink>
+        <NavLink
+          activeStyle={{
+            fontWeight: "bold",
+            color: "blue",
+          }}
+          to='/shoppingDetails'>
+          ShoppingDetails
+        </NavLink>
       </nav>
 
       <Navigation />
       <MessageBox />
+
       {isLoading ? <Loading /> : null}
 
       <Switch>
+        {/* <Route exact path='/sse' component={SSEClient} /> */}
         <Route exact path='/' component={Home} />
 
         <Route path='/signup' component={SignUp} />
@@ -88,6 +101,8 @@ function App() {
         <Route path='/ourservices' component={OurServices} />
         <Route path='/events/:id' component={EventsDetails} />
         <Route path='/shopping' component={ShoppingLists} />
+        <Route path='/shoppingDetails' exact component={ShoppingDetails} />
+        <Route path='/shoppingDetails/:id' component={ShoppingLisData} />
       </Switch>
     </div>
   );
