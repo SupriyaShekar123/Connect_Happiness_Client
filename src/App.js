@@ -27,6 +27,7 @@ import OurServices from "./components/OurServices";
 import EventsDetails from "./components/EventsDetails";
 import ShoppingLists from "./components/ShoppingLists";
 import ShoppingDetails from "./components/ShoppingDetails";
+import ShoppingLisData from "./components/ShoppingLisData";
 
 function App() {
   const dispatch = useDispatch();
@@ -100,7 +101,8 @@ function App() {
         <Route path='/ourservices' component={OurServices} />
         <Route path='/events/:id' component={EventsDetails} />
         <Route path='/shopping' component={ShoppingLists} />
-        <Route path='/shoppingDetails' component={ShoppingDetails} />
+        <Route path='/shoppingDetails' exact component={ShoppingDetails} />
+        <Route path='/shoppingDetails/:id' component={ShoppingLisData} />
       </Switch>
     </div>
   );

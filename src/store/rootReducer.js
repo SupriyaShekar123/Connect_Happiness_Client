@@ -4,6 +4,7 @@ import user from "./user/reducer";
 import events from "./events/reducer";
 import eventsDetails from "./eventsDetails/reducer";
 import shopping from "./shopping/reducer";
+import shoppingDetails from "./shoppingDetails/reducer";
 
 export default combineReducers({
   appState,
@@ -11,4 +12,5 @@ export default combineReducers({
   events,
   eventsDetails,
   shopping,
+  shoppingDetails,
 });

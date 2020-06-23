@@ -1,3 +1,3 @@
 export function selectShoppingDetails(reduxState) {
-  return reduxState.shopping.details;
+  return reduxState.shoppingDetails.details;
 }
