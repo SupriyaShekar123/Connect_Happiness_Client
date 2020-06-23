@@ -20,7 +20,7 @@ import Login from "./pages/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-//import SSEClient from "./components/SSEClient";
+import SSEClient from "./components/SSEClient";
 
 import Home from "./components/Home";
 import OurServices from "./components/OurServices";
@@ -41,6 +41,7 @@ function App() {
 
   return (
     <div className='App'>
+      <SSEClient />
       <nav>
         <NavLink
           activeStyle={{
@@ -78,9 +79,11 @@ function App() {
 
       <Navigation />
       <MessageBox />
+
       {isLoading ? <Loading /> : null}
 
       <Switch>
+        {/* <Route exact path='/sse' component={SSEClient} /> */}
         <Route exact path='/' component={Home} />
 
         <Route path='/signup' component={SignUp} />
