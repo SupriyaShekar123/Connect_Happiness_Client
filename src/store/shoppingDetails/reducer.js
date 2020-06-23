@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         ...state,
 
         loading: true,
-        details: action.payload,
+        details: [action.payload],
       };
     }
     case "SHOPPING_DETAIL_ERROR": {
