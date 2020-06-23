@@ -46,10 +46,10 @@ export default function SignUp() {
 
   const handleSingleCheck = (e) => {
     setIsChecked({ ...isChecked, [e.target.id]: e.target.checked });
-    // console.log("check box ", isChecked , "     testing");
+    // console.log("check box ", isChecked, "     testing");
   };
 
-  // console.log("check box ", isChecked);
+  console.log("check box ", isChecked);
 
   function submitForm(event) {
     event.preventDefault();
@@ -161,14 +161,60 @@ export default function SignUp() {
 
         <Form.Group controlId='formBasicCheckbox'>
           {formData.map((test) => {
-            return (
-              <Form.Check
-                type='checkbox'
-                id={test.name}
-                label={test.name}
-                onChange={handleSingleCheck}
-              />
-            );
+            console.log(" test name : ", test.name);
+
+            // if condition to validate the checkbox, user can only singin as senior citizen or (volunteer or general)
+            if (
+              isChecked.seniorCitizen === true &&
+              test.name.toUpperCase() === "SENIORCITIZEN"
+            ) {
+              console.log(" enable  sernior citize ");
+              return (
+                <Form.Check
+                  type='checkbox'
+                  id={test.name}
+                  label={test.name}
+                  onChange={handleSingleCheck}
+                />
+              );
+            } else if (
+              (isChecked.general === true || isChecked.volunteer === true) &&
+              (test.name.toUpperCase() === "GENERAL" ||
+                test.name.toUpperCase() === "VOLUNTEER")
+            ) {
+              console.log("disable senior citizen");
+              return (
+                <Form.Check
+                  type='checkbox'
+                  id={test.name}
+                  label={test.name}
+                  onChange={handleSingleCheck}
+                />
+              );
+            } else if (
+              isChecked.seniorCitizen === false &&
+              isChecked.general === false &&
+              isChecked.volunteer === false
+            ) {
+              return (
+                <Form.Check
+                  type='checkbox'
+                  id={test.name}
+                  label={test.name}
+                  onChange={handleSingleCheck}
+                />
+              );
+            } else {
+              return (
+                <Form.Check
+                  disabled
+                  type='checkbox'
+                  id={test.name}
+                  label={test.name}
+                  onChange={handleSingleCheck}
+                />
+              );
+            }
           })}
         </Form.Group>
 
