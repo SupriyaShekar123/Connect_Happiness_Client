@@ -26,6 +26,7 @@ import Home from "./components/Home";
 import OurServices from "./components/OurServices";
 import EventsDetails from "./components/EventsDetails";
 import ShoppingLists from "./components/ShoppingLists";
+import ShoppingDetails from "./components/ShoppingDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -75,6 +76,14 @@ function App() {
           to='/shopping'>
           Shopping
         </NavLink>
+        <NavLink
+          activeStyle={{
+            fontWeight: "bold",
+            color: "blue",
+          }}
+          to='/shoppingDetails'>
+          ShoppingDetails
+        </NavLink>
       </nav>
 
       <Navigation />
@@ -91,6 +100,7 @@ function App() {
         <Route path='/ourservices' component={OurServices} />
         <Route path='/events/:id' component={EventsDetails} />
         <Route path='/shopping' component={ShoppingLists} />
+        <Route path='/shoppingDetails' component={ShoppingDetails} />
       </Switch>
     </div>
   );
