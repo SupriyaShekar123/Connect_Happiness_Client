@@ -27,6 +27,15 @@ export default (state = initialState, action) => {
         loading: true,
       };
     }
+    case "PARTICIPENTS_SUCCESS": {
+      //  console.log("ARTLIST DETAILS, action.payload);
+      return {
+        ...state,
+
+        participents: action.payload,
+      };
+    }
+
     default:
       return state;
   }
