@@ -16,6 +16,11 @@ export default function OurServices() {
 
   return (
     <div>
+      <div>
+        <Link to={"/eventform"}>
+          <button>Start an event</button>
+        </Link>
+      </div>
       {eventLists.map((events) => {
         return (
           <div>

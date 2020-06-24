@@ -30,6 +30,7 @@ import ShoppingDetails from "./components/ShoppingDetails";
 import ShoppingLisData from "./components/ShoppingLisData";
 
 import { selectUser, selectToken } from "./store/user/selectors";
+import EventForm from "./components/EventForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,14 +59,14 @@ function App() {
     <div className='App'>
       <SSEClient />
       <nav>
-        <NavLink
+        {/* <NavLink
           activeStyle={{
             fontWeight: "bold",
             color: "red",
           }}
           to='/'>
           Home
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink
           activeStyle={{
             fontWeight: "bold",
@@ -74,14 +75,14 @@ function App() {
           to='/ourservices'>
           OurServices
         </NavLink> */}
-        <NavLink
+        {/* <NavLink
           activeStyle={{
             fontWeight: "bold",
             color: "blue",
           }}
           to='/login'>
           Login
-        </NavLink>
+        </NavLink> */}
         {token === null ||
         seniorCitizen.roles === "general" ||
         seniorCitizen.roles === "volunteer" ? (
@@ -126,6 +127,7 @@ function App() {
         <Route path='/shopping' component={ShoppingLists} />
         <Route path='/shoppingDetails' exact component={ShoppingDetails} />
         <Route path='/shoppingDetails/:id' component={ShoppingLisData} />
+        <Route path='/eventform' component={EventForm} />
       </Switch>
     </div>
   );
