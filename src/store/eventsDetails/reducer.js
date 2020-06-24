@@ -35,6 +35,14 @@ export default (state = initialState, action) => {
         participents: action.payload,
       };
     }
+    case "EVENTS_CREATE_SUCCESS": {
+      //  console.log("ARTLIST DETAILS, action.payload);
+      return {
+        ...state,
+
+        createEvents: action.payload,
+      };
+    }
 
     default:
       return state;

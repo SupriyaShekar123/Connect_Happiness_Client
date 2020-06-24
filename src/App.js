@@ -109,6 +109,20 @@ function App() {
             ShoppingDetails
           </NavLink>
         )}
+        {token === null ||
+        seniorCitizen.roles === "general" ||
+        seniorCitizen.roles === "volunteer" ? (
+          history.push("/login")
+        ) : (
+          <NavLink
+            activeStyle={{
+              fontWeight: "bold",
+              color: "blue",
+            }}
+            to='/eventform'>
+            Create an event
+          </NavLink>
+        )}
       </nav>
 
       <Navigation />

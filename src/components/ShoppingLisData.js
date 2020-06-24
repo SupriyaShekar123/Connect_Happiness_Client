@@ -1,20 +1,35 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getShoppingDetails } from "../store/shoppingDetails/actions";
+import {
+  getShoppingDetails,
+  updateShopping,
+} from "../store/shoppingDetails/actions";
 import { selectShoppingDetails } from "../store/shoppingDetails/selectors";
+import { selectUser } from "../store/user/selectors";
 
 export default function ShoppingLisData() {
   const { id } = useParams();
   console.log("Params", id);
   const shoppingDetails = useSelector(selectShoppingDetails);
   console.log("Shopping Details", shoppingDetails.user);
+  const userId = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getShoppingDetails(id));
   }, [dispatch, id]);
+
+  function updateData() {
+    console.log("closed");
+    const update = {
+      volunteerId: userId.id,
+      status: "close",
+    };
+    dispatch(updateShopping(id, update));
+    console.log("id", id);
+  }
 
   return (
     <div>
@@ -31,7 +46,7 @@ export default function ShoppingLisData() {
             <p>City:{details.user.city}</p>
             <p>Phone:{details.user.phone}</p>
             <p>Email:{details.user.email}</p>
-            <button>connect</button>
+            <button onClick={updateData}>connect</button>
           </div>
         );
       })}
