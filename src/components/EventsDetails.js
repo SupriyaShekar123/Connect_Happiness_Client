@@ -40,6 +40,7 @@ export default function EventsDetails() {
       history.push("/login");
     } else {
       dispatch(participents(datas));
+      //history.push(`/events/${id}`);
     }
   }
 
