@@ -28,12 +28,13 @@ export default (state = initialState, action) => {
         loading: true,
       };
     }
-    case "LISTS_SUCCESS": {
-      return {
-        ...state,
-        shopping: action.payload,
-      };
-    }
+    // case "LISTS_SUCCESS": {
+    //   console.log("SHOPPING ACTIION ", action.payload);
+    //   return {
+    //     ...state,
+    //     shopping: [action.payload],
+    //   };
+    // }
     default:
       return state;
   }

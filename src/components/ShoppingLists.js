@@ -1,19 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { shopping } from "../store/events/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { shopping } from "../store/shopping/actions";
+
+import { selectUser } from "../store/user/selectors";
+import { selectShoppingListId } from "../store/shopping/selectors";
 
 export default function ShoppingLists() {
   const [category, setCategories] = useState({ shop: "groceries" });
   const [list, setList] = useState("");
+  const user = useSelector(selectUser);
+
+  const shoppingListsId = useSelector(selectShoppingListId);
+  // console.log("ShoppingListId", shoppingListsId.id);
+
+  // const id = shoppingListsId.id;
+  // console.log("id", id);
+
+  // console.log("user", user.id);
   const dispatch = useDispatch();
 
   function submit(event) {
     event.preventDefault();
 
-    const lists = { category, list, userId: 1 };
+    const lists = { category, list, userId: user.id };
     console.log("LISTS", lists);
 
     dispatch(shopping(lists));
+    console.log("ShoppingListId", shoppingListsId.id);
+
+    //dispatch(sendMail, id);
   }
 
   return (

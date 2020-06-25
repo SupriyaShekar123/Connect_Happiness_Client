@@ -27,6 +27,15 @@ export default (state = initialState, action) => {
         loading: true,
       };
     }
+    case "UPDATE_SHOPPING": {
+      return {
+        ...state,
+        details: state.details.map((update) => {
+          console.log("update redux", update);
+          return { ...update, volunteerId: action.payload };
+        }),
+      };
+    }
     default:
       return state;
   }
