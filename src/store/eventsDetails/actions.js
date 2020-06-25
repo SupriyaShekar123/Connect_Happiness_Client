@@ -27,7 +27,7 @@ export const getEventsDetails = (id) => {
 };
 
 export function participents(datas) {
-  console.log(" participents ", datas);
+  //console.log(" participents ", datas);
   return async (dispatch, getState) => {
     //const token = selectToken(getState());
 
@@ -57,7 +57,7 @@ export function participents(datas) {
 }
 
 export function createEvents(eventFormDetails) {
-  console.log(" participents ", eventFormDetails);
+  //console.log(" participents ", eventFormDetails);
   return async (dispatch, getState) => {
     //const token = selectToken(getState());
 

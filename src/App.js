@@ -106,7 +106,7 @@ function App() {
               color: "blue",
             }}
             to='/shoppingDetails'>
-            ShoppingDetails
+            Open Requests
           </NavLink>
         )}
         {token === null ||

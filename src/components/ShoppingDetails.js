@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getShoppingDetails } from "../store/shopping/actions";
-import { selectShoppingDetails } from "../store/shopping/selectors";
+import { selectShoppingLists } from "../store/shopping/selectors";
 
 export default function ShoppingDetails() {
-  const shoppinglists = useSelector(selectShoppingDetails);
+  const shoppinglists = useSelector(selectShoppingLists);
   console.log("Shopping lists", shoppinglists);
   const dispatch = useDispatch();
 
