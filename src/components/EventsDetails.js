@@ -12,18 +12,33 @@ export default function EventsDetails() {
     "Please login or sign up to add to the event"
   );
   const userId = useSelector(selectUser);
-  console.log("userId", userId.id);
+  console.log(" sector userId", userId.id);
   const token = useSelector(selectToken);
-  console.log("token", token);
+  // console.log("token", token);
   const { id } = useParams();
   const eventDetails = useSelector(selectEventsDetails);
-  console.log("eventsDetails", eventDetails.title);
+  console.log("eventsDetails", eventDetails);
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
     dispatch(getEventsDetails(id));
   }, [dispatch, id]);
+
+  let checkUserExist;
+  const findParticipation = eventDetails.map((user) => {
+    checkUserExist = user.participents.find(
+      (checkuser) => checkuser.userId === userId.id
+    );
+
+    return checkUserExist;
+  });
+
+  if (checkUserExist === undefined) {
+    console.log("This user is not a participant ", findParticipation);
+  } else {
+    console.log("user is a paraicitian", findParticipation);
+  }
 
   //   function message() {
   //     setMessage("ghghg");
@@ -46,9 +61,23 @@ export default function EventsDetails() {
 
   return (
     <div>
-      <p>{eventDetails.title}</p>
-      <p>{eventDetails.detail}</p>
-      <button onClick={submit}>Join this event</button>
+      {eventDetails.map((eventsId) => {
+        return (
+          <div>
+            <p>{eventsId.title}</p>
+            <img src={eventsId.imageUrl} />
+            <p>{eventsId.detail}</p>
+
+            <p>No. of members Attending:{eventsId.participents.length}</p>
+          </div>
+        );
+      })}
+
+      <div>
+        {checkUserExist === undefined && (
+          <button onClick={submit}>Join this event</button>
+        )}
+      </div>
     </div>
   );
 }

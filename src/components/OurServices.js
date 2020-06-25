@@ -25,7 +25,7 @@ export default function OurServices() {
           <div>
             <p>{events.title}</p>
             <img src={events.imageUrl} />
-            <p>{events.detail}</p>
+
             <Link to={`/events/${events.id}`}>
               <button>Read More</button>
             </Link>

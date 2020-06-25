@@ -29,11 +29,14 @@ export default (state = initialState, action) => {
     }
     case "UPDATE_SHOPPING": {
       return {
+        // ...state,
+        // details: state.details.map((update) => {
+        //   console.log("update redux", update);
+        //   return { ...update, volunteerId: action.payload };
+        // }),
+
         ...state,
-        details: state.details.map((update) => {
-          console.log("update redux", update);
-          return { ...update, volunteerId: action.payload };
-        }),
+        details: [action.payload],
       };
     }
     default:
