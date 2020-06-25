@@ -17,7 +17,7 @@ export default function EventsDetails() {
   console.log("token", token);
   const { id } = useParams();
   const eventDetails = useSelector(selectEventsDetails);
-  console.log("eventsDetails", eventDetails.title);
+  console.log("eventsDetails", eventDetails);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -46,8 +46,18 @@ export default function EventsDetails() {
 
   return (
     <div>
-      <p>{eventDetails.title}</p>
-      <p>{eventDetails.detail}</p>
+      {eventDetails.map((eventsId) => {
+        return (
+          <div>
+            <p>{eventsId.title}</p>
+            <img src={eventsId.imageUrl} />
+            <p>{eventsId.detail}</p>
+
+            <p>No. of members Attending:{eventsId.participents.length}</p>
+          </div>
+        );
+      })}
+
       <button onClick={submit}>Join this event</button>
     </div>
   );
