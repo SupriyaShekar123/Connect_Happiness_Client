@@ -10,11 +10,19 @@ import { selectUser } from "../store/user/selectors";
 
 export default function ShoppingLisData() {
   const { id } = useParams();
-  console.log("Params", id);
+  // console.log("Params", id);
   const shoppingDetails = useSelector(selectShoppingDetails);
-  console.log("Shopping Details", shoppingDetails.user);
+  console.log("Shopping DETAILS", shoppingDetails);
   const userId = useSelector(selectUser);
+  // console.log("USER DATA :", userId);
 
+  const details = shoppingDetails.map((shopDetials) => {
+    return shopDetials.status;
+  });
+
+  if (details[0] === "close") {
+    console.log("DETAILS OF SHOPPING :", details);
+  }
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,10 +54,19 @@ export default function ShoppingLisData() {
             <p>City:{details.user.city}</p>
             <p>Phone:{details.user.phone}</p>
             <p>Email:{details.user.email}</p>
-            <button onClick={updateData}>connect</button>
           </div>
         );
       })}
+      {details[0] != "close" && userId.roles != "seniorCitizen" ? (
+        <button onClick={updateData}>connect</button>
+      ) : (
+        ""
+      )}
+
+      {/* {details[0] != "close" && <button onClick={updateData}>connect</button>}
+      {userId.roles != "seniorCitizen" && (
+        <button onClick={updateData}>connect</button>
+      )} */}
     </div>
   );
 }

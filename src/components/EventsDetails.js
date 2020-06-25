@@ -12,9 +12,9 @@ export default function EventsDetails() {
     "Please login or sign up to add to the event"
   );
   const userId = useSelector(selectUser);
-  console.log("userId", userId.id);
+  console.log(" sector userId", userId.id);
   const token = useSelector(selectToken);
-  console.log("token", token);
+  // console.log("token", token);
   const { id } = useParams();
   const eventDetails = useSelector(selectEventsDetails);
   console.log("eventsDetails", eventDetails);
@@ -24,6 +24,21 @@ export default function EventsDetails() {
   useEffect(() => {
     dispatch(getEventsDetails(id));
   }, [dispatch, id]);
+
+  let checkUserExist;
+  const findParticipation = eventDetails.map((user) => {
+    checkUserExist = user.participents.find(
+      (checkuser) => checkuser.userId === userId.id
+    );
+
+    return checkUserExist;
+  });
+
+  if (checkUserExist === undefined) {
+    console.log("This user is not a participant ", findParticipation);
+  } else {
+    console.log("user is a paraicitian", findParticipation);
+  }
 
   //   function message() {
   //     setMessage("ghghg");
@@ -58,7 +73,11 @@ export default function EventsDetails() {
         );
       })}
 
-      <button onClick={submit}>Join this event</button>
+      <div>
+        {checkUserExist === undefined && (
+          <button onClick={submit}>Join this event</button>
+        )}
+      </div>
     </div>
   );
 }

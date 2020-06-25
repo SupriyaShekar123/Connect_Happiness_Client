@@ -25,7 +25,7 @@ export function updateShopping(id, update) {
         update
       );
 
-      //console.log("Auction  FORM  Response ", response.data);
+      console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "UPDATE_SHOPPING", payload: response.data });
       //dispatch(setMessage("success", false, null));
       //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
