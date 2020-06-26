@@ -1,4 +1,11 @@
 import axios from "axios";
+import {
+  appLoading,
+  appDoneLoading,
+  showMessageWithTimeout,
+  setMessage,
+  clearMessage,
+} from "../appState/actions";
 
 // export async function getEventsDetails(dispatch, getstate) {
 //   dispatch({ type: "EVENTSDETAILS_LOADING" });
@@ -57,7 +64,17 @@ export function participents(datas) {
 }
 
 export function createEvents(eventFormDetails) {
-  //console.log(" participents ", eventFormDetails);
+  console.log(" Create EVENTS .... ", eventFormDetails);
+
+  const { title, detail, imageUrl, date, location, userId } = eventFormDetails;
+
+  if (!title || !detail || !imageUrl || !date || !location || !userId) {
+    console.log("SHOPPING VALIDATATION : ", eventFormDetails);
+
+    return async (dispatch, getState) => {
+      dispatch(setMessage("danger", true, "Fill the mandatoary fields"));
+    };
+  }
   return async (dispatch, getState) => {
     //const token = selectToken(getState());
 
@@ -69,6 +86,16 @@ export function createEvents(eventFormDetails) {
 
       //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "EVENTS_CREATE_SUCCESS", payload: response.data });
+
+      dispatch(
+        showMessageWithTimeout(
+          "success",
+          false,
+          "Your Request has submitted successfully",
+          2500
+        )
+      );
+
       //dispatch(setMessage("success", false, null));
       //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {

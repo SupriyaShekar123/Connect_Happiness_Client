@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className='App'>
-      <SSEClient />
+      {/* <SSEClient /> */}
       <nav>
         {/* <NavLink
           activeStyle={{

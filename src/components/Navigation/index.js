@@ -7,6 +7,7 @@ import { selectToken } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+// import { selectUser, selectToken } from "./store/user/selectors";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
@@ -24,6 +25,7 @@ export default function Navigation() {
           <NavbarItem path='/' linkText='Home' />
           <NavbarItem path='/ourservices' linkText='Events' />
           {loginLogoutControls}
+          {/* <NavbarItem path='/shopping' linkText='Shopping' /> */}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -7,12 +7,13 @@ import {
 } from "../store/shoppingDetails/actions";
 import { selectShoppingDetails } from "../store/shoppingDetails/selectors";
 import { selectUser } from "../store/user/selectors";
+import EventsDetails from "./EventsDetails";
 
 export default function ShoppingLisData() {
   const { id } = useParams();
   console.log("Params", id);
   const shoppingDetails = useSelector(selectShoppingDetails);
-  console.log("Shopping Details", shoppingDetails.user);
+  console.log("Shopping Details...", shoppingDetails);
   const userId = useSelector(selectUser);
 
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ export default function ShoppingLisData() {
     <div>
       {shoppingDetails.map((details) => {
         return (
-          <div>
+          <div key={details.id}>
             <p>{details.category}</p>
             <p>{details.list}</p>
 
@@ -46,10 +47,20 @@ export default function ShoppingLisData() {
             <p>City:{details.user.city}</p>
             <p>Phone:{details.user.phone}</p>
             <p>Email:{details.user.email}</p>
-            <button onClick={updateData}>connect</button>
           </div>
         );
       })}
+      <div>
+        {shoppingDetails.map((details) => {
+          if (details.status != "close") {
+            return (
+              <div>
+                <button onClick={updateData}>connect</button>
+              </div>
+            );
+          }
+        })}
+      </div>
     </div>
   );
 }

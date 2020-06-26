@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../store/user/selectors";
 import { createEvents } from "../store/eventsDetails/actions";
+import { selectMessage } from "../store/appState/selectors";
+import { clearMessage } from "../store/appState/actions";
 
 export default function EventForm() {
   const [title, setTitle] = useState("");
@@ -15,9 +17,12 @@ export default function EventForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const appSuccessMessage = useSelector(selectMessage);
+
   function submit(event) {
     event.preventDefault();
-    console.log("submit");
+    dispatch(clearMessage());
+
     const eventFormDetails = {
       title: title,
       detail: detail,
@@ -27,9 +32,14 @@ export default function EventForm() {
       userId: userId.id,
     };
     dispatch(createEvents(eventFormDetails));
-    history.push("/ourServices");
+    // history.push("/ourServices");
   }
 
+  if (appSuccessMessage != null && appSuccessMessage.dismissable === false) {
+    history.push("/ourServices");
+  }
+  const today = new Date().toISOString().split(":");
+  console.log("DATE TODAU ", today);
   return (
     <div className='div_main_event_form'>
       <div className='div_inner_event_form'>
@@ -57,8 +67,9 @@ export default function EventForm() {
           />
           <label>Date</label>
           <input
-            className='event_form'
+            className='event_form_date_value'
             type='datetime-local'
+            min={today[0] + ":" + today[1]}
             value={date}
             onChange={(event) => setDate(event.target.value)}
           />

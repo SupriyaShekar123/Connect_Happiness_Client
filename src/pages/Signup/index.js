@@ -155,7 +155,6 @@ export default function SignUp() {
             onChange={(event) => setPhone(event.target.value)}
             type='tel'
             //placeholder='Password'
-            required
           />
         </Form.Group>
 

@@ -12,15 +12,20 @@ export default function EventsDetails() {
     "Please login or sign up to add to the event"
   );
   const userId = useSelector(selectUser);
-  console.log("userId", userId.id);
+  console.log("userId", userId);
   const token = useSelector(selectToken);
-  console.log("token", token);
+  // console.log("token", token);
   const { id } = useParams();
   const eventDetails = useSelector(selectEventsDetails);
   console.log("eventsDetails", eventDetails);
 
-  const part = eventDetails.participents;
-  // console.log("Count of Participatnat", part[0].id);
+  const t = eventDetails.map((prticepents) => {
+    const findParticepents = prticepents.participents.find(
+      (event) => event.userId === userId.id
+    );
+    console.log(" VALUE PARTICIPENTS :", findParticepents);
+  });
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -33,7 +38,7 @@ export default function EventsDetails() {
       eventId: id,
       userId: userId.id,
     };
-    console.log("Please Sign up or login to join the event");
+    // console.log("Please Sign up or login to join the event");
     if (token === null) {
       //alert("Please Signup if new User or Login if existing user to join.");
       history.push("/login");
@@ -59,15 +64,37 @@ export default function EventsDetails() {
             <div className='div_event_title' key={details.id}>
               <h2>{details.title}</h2>
               <div> location : {details.location}</div>
-              <div> date : {details.date} </div>
-              <div> Number of people joined :{details.participents.length}</div>
-
-              <div className='event_join_btn'>
-                <button onClick={submit}>Join this event</button>
+              <div>
+                {" "}
+                date :{" "}
+                {new Intl.DateTimeFormat("en-FB", {
+                  year: "numeric",
+                  month: "long",
+                  day: "2-digit",
+                  hour: "numeric",
+                  minute: "numeric",
+                }).format(Date.parse(details.date))}{" "}
               </div>
+              <div> Number of people joined :{details.participents.length}</div>
             </div>
           );
         })}
+        <div className='event_join_btn'>
+          {
+            eventDetails.map((prticepents) => {
+              const findParticepents = prticepents.participents.find(
+                (event) => event.userId === userId.id
+              );
+
+              if (findParticepents === undefined) {
+                return <button onClick={submit}>Join this event</button>;
+              }
+            })
+            // userId.roles != "seniorCitizen" && (
+            //   <button onClick={submit}>Join this event</button>
+            // )
+          }
+        </div>
       </div>
       <div className='div_events_detail'>
         <div>

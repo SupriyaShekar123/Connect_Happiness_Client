@@ -170,6 +170,11 @@ img {
     width: 100%;
 }
 
+.event_form_date_value {
+    width: 100%;
+    /* pointer-events: none; */
+}
+
 .div_main_event_form {
     margin: auto;
     width: 50%;
@@ -235,4 +240,40 @@ img {
     height: 100px;
     /* width: 40%; */
     /* width: 55%; */
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.div-padding {
+    /* padding: 2%; */
+    margin: auto;
+    width: 70%;
+    /* border: 3px solid #73ad21; */
+    padding: 3%;
+    align-items: center;
+    text-align: center;
+}
+
+.shopping_form {
+    margin: auto;
+    width: 70%;
+    /* border: 3px solid #73ad21; */
+    /* padding: 3%; */
+    align-items: center;
+    text-align: left;
 }

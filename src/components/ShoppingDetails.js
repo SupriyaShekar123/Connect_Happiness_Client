@@ -15,49 +15,34 @@ export default function ShoppingDetails() {
   }, [dispatch]);
 
   return (
-    // <Table striped bordered hover size='sm'>
-    //   <thead>
-    //     <tr>
-    //       <th>#</th>
-    //       <th>First Name</th>
-    //       <th>Last Name</th>
-    //       <th>Username</th>
-    //     </tr>
-    //   </thead>
-    //   <tbody>
-    //     <tr>
-    //       <td>1</td>
-    //       <td>Mark</td>
-    //       <td>Otto</td>
-    //       <td>@mdo</td>
-    //     </tr>
-    //     <tr>
-    //       <td>2</td>
-    //       <td>Jacob</td>
-    //       <td>Thornton</td>
-    //       <td>@fat</td>
-    //     </tr>
-    //     <tr>
-    //       <td>3</td>
-    //       <td colSpan='2'>Larry the Bird</td>
-    //       <td>@twitter</td>
-    //     </tr>
-    //   </tbody>
-    // </Table>
-    <div>
-      {shoppinglists.map((lists) => {
-        return (
-          <div>
-            <p>Name:{lists.user.name}</p>
-            <p>Email:{lists.user.email}</p>
-            <p>{lists.category}</p>
-            <p>Items:{lists.list}</p>
-            <Link to={`/shoppingDetails/${lists.id}`}>
-              <button>View Details</button>
-            </Link>
-          </div>
-        );
-      })}
+    <div className='div-padding'>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>category</th>
+          <th>lists</th>
+          <th>Status</th>
+          <th>Details</th>
+        </tr>
+        {shoppinglists.map((lists) => {
+          return (
+            <tr>
+              <td>{lists.user.name}</td>
+              <td>{lists.user.email}</td> <td>{lists.category}</td>
+              <td>{lists.list}</td>
+              <td>{lists.status}</td>
+              <Link to={`/shoppingDetails/${lists.id}`}>
+                {" "}
+                <td>
+                  {" "}
+                  <button>View Details</button>{" "}
+                </td>
+              </Link>
+            </tr>
+          );
+        })}
+      </table>
     </div>
   );
 }

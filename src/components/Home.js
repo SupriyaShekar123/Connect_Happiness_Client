@@ -1,6 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { clearMessage } from "../store/appState/actions";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  dispatch(clearMessage());
   return (
     <div className='div_homepage'>
       <h2>Connect Happiness - Helping your Community</h2>
