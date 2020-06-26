@@ -1,6 +1,7 @@
 const initialState = {
   loading: true,
   details: [],
+  participents: [],
 };
 
 export default (state = initialState, action) => {
@@ -18,7 +19,7 @@ export default (state = initialState, action) => {
         ...state,
 
         loading: true,
-        details: action.payload,
+        details: [action.payload],
       };
     }
     case "EVENTSDETAILS_ERROR": {

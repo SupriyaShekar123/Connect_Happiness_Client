@@ -17,17 +17,16 @@ export default function EventsDetails() {
   console.log("token", token);
   const { id } = useParams();
   const eventDetails = useSelector(selectEventsDetails);
-  console.log("eventsDetails", eventDetails.title);
+  console.log("eventsDetails", eventDetails);
+
+  const part = eventDetails.participents;
+  // console.log("Count of Participatnat", part[0].id);
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
     dispatch(getEventsDetails(id));
   }, [dispatch, id]);
-
-  //   function message() {
-  //     setMessage("ghghg");
-  //   }
 
   function submit() {
     const datas = {
@@ -45,10 +44,39 @@ export default function EventsDetails() {
   }
 
   return (
-    <div>
-      <p>{eventDetails.title}</p>
-      <p>{eventDetails.detail}</p>
-      <button onClick={submit}>Join this event</button>
+    <div className='div_eventDetails'>
+      {eventDetails.map((details) => {
+        return (
+          <div className='div_events_image' key={details.id}>
+            <img className='image_events' src={details.imageUrl} />
+          </div>
+        );
+      })}
+
+      <div className='div_events_image'>
+        {eventDetails.map((details) => {
+          return (
+            <div className='div_event_title' key={details.id}>
+              <h2>{details.title}</h2>
+              <div> location : {details.location}</div>
+              <div> date : {details.date} </div>
+              <div> Number of people joined :{details.participents.length}</div>
+
+              <div className='event_join_btn'>
+                <button onClick={submit}>Join this event</button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className='div_events_detail'>
+        <div>
+          <h3>Details</h3>
+        </div>
+        {eventDetails.map((details) => {
+          return <div key={details.id}>{details.detail}</div>;
+        })}
+      </div>
     </div>
   );
 }

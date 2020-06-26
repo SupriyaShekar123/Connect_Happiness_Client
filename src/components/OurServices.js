@@ -19,15 +19,18 @@ export default function OurServices() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='div_ourservices'>
       {eventLists.map((events) => {
         return (
-          <div>
-            <p>{events.title}</p>
-            <img src={events.imageUrl} />
-            <p>{events.detail}</p>
+          <div className='div_inner_details'>
             <Link to={`/events/${events.id}`}>
-              <button>Read More</button>
+              <div className='event_title'>{events.title}</div>
+              <img src={events.imageUrl} />
+            </Link>
+
+            {/* <p>{events.detail}</p> */}
+            <Link to={`/events/${events.id}`}>
+              {/* <button>Read More</button> */}
             </Link>
           </div>
         );

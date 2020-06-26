@@ -31,40 +31,47 @@ export default function EventForm() {
   }
 
   return (
-    <div>
-      <form>
-        <label>Title</label>
-        <input
-          type='text'
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-        />
-        <label>Detail</label>
-        <input
-          type='text'
-          value={detail}
-          onChange={(event) => setDetail(event.target.value)}
-        />
-        <label>ImageUrl</label>
-        <input
-          type='url'
-          value={imageUrl}
-          onChange={(event) => setImageUrl(event.target.value)}
-        />
-        <label>Date</label>
-        <input
-          type='date'
-          value={date}
-          onChange={(event) => setDate(event.target.value)}
-        />
-        <label>location</label>
-        <input
-          type='address'
-          value={location}
-          onChange={(event) => setLocation(event.target.value)}
-        />
-        <button onClick={submit}>Add this Event</button>
-      </form>
+    <div className='div_main_event_form'>
+      <div className='div_inner_event_form'>
+        <form>
+          <label>Title</label>
+          <input
+            className='event_form'
+            type='text'
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+          />
+          <label>Detail</label>
+          <textarea
+            className='event_form'
+            type='text'
+            value={detail}
+            onChange={(event) => setDetail(event.target.value)}
+          />
+          <label>ImageUrl</label>
+          <input
+            className='event_form'
+            type='url'
+            value={imageUrl}
+            onChange={(event) => setImageUrl(event.target.value)}
+          />
+          <label>Date</label>
+          <input
+            className='event_form'
+            type='datetime-local'
+            value={date}
+            onChange={(event) => setDate(event.target.value)}
+          />
+          <label>location</label>
+          <input
+            className='event_form'
+            type='address'
+            value={location}
+            onChange={(event) => setLocation(event.target.value)}
+          />
+          <button onClick={submit}>Add this Event</button>
+        </form>
+      </div>
     </div>
   );
 }
