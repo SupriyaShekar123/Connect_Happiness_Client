@@ -53,7 +53,56 @@ export default function ShoppingLists() {
   const today = new Date().toISOString().split(":");
   return (
     <div className='shopping_form'>
-      <Container>
+      <div className='div_inner_req_form'>
+        <div class='div_shooping_req_heading'>
+          Provide Your Request Information
+        </div>
+        <form>
+          <div className='div_req_left'>
+            <label>Request Type</label>
+          </div>
+          <div className='div_req_right'>
+            <input
+              className='req_form'
+              type='text'
+              value={category}
+              onChange={(event) => setCategories(event.target.value)}
+            />
+          </div>
+          <div className='div_req_left'>
+            <label>Detail</label>
+          </div>
+          <div className='div_req_right'>
+            <textarea
+              className='req_form'
+              type='text'
+              value={list}
+              onChange={(event) => setList(event.target.value)}
+            />
+          </div>
+
+          <div className='div_req_left'>
+            <label>Date</label>
+          </div>
+
+          <div className='div_req_right'>
+            <input
+              className='event_form_date_value'
+              type='datetime-local'
+              min={today[0] + ":" + today[1]}
+              value={requiredBy}
+              onChange={(event) => setrequiredBy(event.target.value)}
+            />
+          </div>
+
+          <div className='div_req_form_btn'>
+            {" "}
+            <button onClick={submit}>Submit </button>
+          </div>
+        </form>
+      </div>
+
+      {/* <Container>
         <Form as={Col} md={{ span: 6, offset: 3 }} className='mt-5'>
           <h3 className='mt-5 mb-5'>Shopping Form</h3>
           <Form.Group controlId='exampleForm.ControlSelect2'>
@@ -98,7 +147,7 @@ export default function ShoppingLists() {
             </Button>
           </Form.Group>
         </Form>
-      </Container>
+      </Container> */}
     </div>
   );
 }

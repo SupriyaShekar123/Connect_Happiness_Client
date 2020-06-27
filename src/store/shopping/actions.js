@@ -44,7 +44,7 @@ export function shopping(lists) {
       dispatch({ type: "LISTS_SUCCESS", payload: response.data });
       // console.log("shopping id : ", response.data.id);
       const shoppingID = { spid: response.data.id };
-      // dispatch(sendMail(shoppingID));
+      dispatch(sendMail(shoppingID));
       dispatch(
         showMessageWithTimeout(
           "success",

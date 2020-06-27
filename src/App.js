@@ -58,8 +58,8 @@ function App() {
   return (
     <div className='App'>
       {/* <SSEClient /> */}
-      <nav>
-        {/* <NavLink
+      {/* <nav> */}
+      {/* <NavLink
           activeStyle={{
             fontWeight: "bold",
             color: "red",
@@ -67,7 +67,7 @@ function App() {
           to='/'>
           Home
         </NavLink> */}
-        {/* <NavLink
+      {/* <NavLink
           activeStyle={{
             fontWeight: "bold",
             color: "green",
@@ -75,7 +75,7 @@ function App() {
           to='/ourservices'>
           OurServices
         </NavLink> */}
-        {/* <NavLink
+      {/* <NavLink
           activeStyle={{
             fontWeight: "bold",
             color: "blue",
@@ -83,7 +83,7 @@ function App() {
           to='/login'>
           Login
         </NavLink> */}
-        {token === null ||
+      {/* {token === null ||
         seniorCitizen.roles === "general" ||
         seniorCitizen.roles === "volunteer" ? (
           history.push("/login")
@@ -106,7 +106,7 @@ function App() {
               color: "blue",
             }}
             to='/shoppingDetails'>
-            Open Requests
+            Open
           </NavLink>
         )}
         {token === null ||
@@ -123,7 +123,7 @@ function App() {
             Create an event
           </NavLink>
         )}
-      </nav>
+      </nav> */}
 
       <Navigation />
       <MessageBox />

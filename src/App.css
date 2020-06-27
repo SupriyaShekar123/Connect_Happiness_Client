@@ -269,13 +269,117 @@ tr:nth-child(even) {
     text-align: center;
 }
 
+
+/* SHOPPING FORM CSS DETAILS  */
+
 .shopping_form {
     margin: auto;
-    width: 70%;
+    width: 60%;
     /* border: 3px solid #73ad21; */
-    /* padding: 3%; */
+    padding: 1%;
     align-items: center;
     text-align: left;
+}
+
+.div_inner_req_form {
+    margin: auto;
+    width: 60%;
+    /* border: 3px solid red; */
+    padding: 3%;
+    align-items: center;
+    /* text-align: left; */
+    padding: 20px 12px 10px 20px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    border-radius: 4%;
+    /*supported by all latest Browser*/
+    -moz-border-radius: 4%;
+    /*For older Browser*/
+    -webkit-border-radius: 4%;
+    font: 14px Arial, Helvetica, sans-serif;
+}
+
+.div_shooping_req_heading {
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding-bottom: 3px;
+}
+
+.div_req_left {
+    text-align: left;
+    /* padding-left: 200px; */
+    float: left;
+    width: 30%;
+    /* border: 3px solid royalblue; */
+    /* padding: %; */
+    padding-top: 19px;
+    display: inline-block;
+}
+
+.div_req_right {
+    /* position: relative;
+    left: 3%; */
+    /* border: 3px solid #73ad21; */
+    width: 65%;
+    /* padding: 2%; */
+    text-align: left;
+    display: inline-block;
+    padding-top: 15px;
+    /* word-wrap: break-word; */
+    /* padding: 2px; */
+    /* border: 3px solid #ff8500; */
+}
+
+.div_inner_req_form input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #c2c2c2;
+    box-shadow: 1px 1px 4px #ebebeb;
+    -moz-box-shadow: 1px 1px 4px #ebebeb;
+    -webkit-box-shadow: 1px 1px 4px #ebebeb;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+
+.div_inner_req_form textarea {
+    height: 100px;
+    /* width: 40%; */
+    /* width: 55%; */
+}
+
+.div_req_form_btn {
+    align-items: center;
+    display: flex;
+    /* border: 3px solid #73ad21; */
+    padding-top: 5%;
+    justify-content: center;
+    /* position: relative;
+    left: 30%;*/
+}
+
+.div_inner_req_form button {
+    border: none;
+    /* padding: 8px 15px 8px 15px; */
+    background: #ff8500;
+    color: #fff;
+    box-shadow: 1px 1px 4px #dadada;
+    -moz-box-shadow: 1px 1px 4px #dadada;
+    -webkit-box-shadow: 1px 1px 4px #dadada;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 10px 15px 8px 15px;
+    /* padding-top: 8px; */
 }
 
 

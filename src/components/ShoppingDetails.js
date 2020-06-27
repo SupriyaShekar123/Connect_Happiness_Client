@@ -13,6 +13,7 @@ export default function ShoppingDetails() {
   console.log("seniorCitizen", seniorCitizens.roles);
   const roles = seniorCitizens.roles;
   console.log("roles", roles);
+  //const history = useHistory();
 
   useEffect(() => {
     dispatch(getShoppingDetails);
