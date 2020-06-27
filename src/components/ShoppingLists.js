@@ -14,6 +14,7 @@ import { selectMessage } from "../store/appState/selectors";
 export default function ShoppingLists() {
   const [category, setCategories] = useState("groceries");
   const [list, setList] = useState("");
+  const [requiredBy, setrequiredBy] = useState(0);
   const user = useSelector(selectUser);
   const history = useHistory();
 
@@ -37,8 +38,8 @@ export default function ShoppingLists() {
     // this dispatch is used to clear the app state error message.
     dispatch(clearMessage());
 
-    const lists = { category, list, userId: user.id };
-    // console.log("LISTS", lists);
+    const lists = { category, list, userId: user.id, requiredBy };
+    console.log("LISTS", lists);
 
     // this dispatch is used to send post data request to backend server
     dispatch(shopping(lists));
@@ -49,7 +50,7 @@ export default function ShoppingLists() {
   if (appSuccessMessage != null && appSuccessMessage.dismissable === false) {
     history.push("./shoppingDetails");
   }
-
+  const today = new Date().toISOString().split(":");
   return (
     <div className='shopping_form'>
       <Container>
@@ -67,7 +68,7 @@ export default function ShoppingLists() {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group controlId='formBasicPassword'>
+          <Form.Group controlId='formBasicTextArea'>
             <Form.Label>Details:</Form.Label>
             <Form.Control
               as='textarea'
@@ -75,6 +76,18 @@ export default function ShoppingLists() {
               value={list}
               required
               onChange={(event) => setList(event.target.value)}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group controlId='formBasicDate'>
+            <Form.Label>Required By</Form.Label>
+            <Form.Control
+              value={requiredBy}
+              onChange={(event) => setrequiredBy(event.target.value)}
+              type='datetime-local'
+              min={today[0] + ":" + today[1]}
+              //placeholder='Password'
               required
             />
           </Form.Group>
