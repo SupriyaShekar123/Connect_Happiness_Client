@@ -46,6 +46,51 @@ export function participents(datas) {
 
       //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "PARTICIPENTS_SUCCESS", payload: response.data });
+      dispatch(
+        showMessageWithTimeout(
+          "success",
+          false,
+          "You are added to the event successfully",
+          2500
+        )
+      );
+      //dispatch(setMessage("success", false, null));
+      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
+    } catch (error) {
+      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
+      // console.log("AUCTUION ERROR MESSAGE message", error.message);
+      if (error.response) {
+        console.log(error.response.data.message);
+        //dispatch(setMessage("danger", true, error.response.data));
+      } else {
+        console.log("The error is ", error.message);
+        //dispatch(setMessage("danger", true, error.message));
+      }
+      //dispatch(appDoneLoading());
+    }
+  };
+}
+
+export function removeUser(id) {
+  //console.log(" participents ", datas);
+  return async (dispatch, getState) => {
+    //const token = selectToken(getState());
+
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/participents/${id}`
+      );
+
+      console.log("Remove Response ", response.data);
+      dispatch({ type: "REMOVE_USER", payload: response.data });
+      dispatch(
+        showMessageWithTimeout(
+          "success",
+          false,
+          "You are removed from this  event. Hope to see you back soon.",
+          2500
+        )
+      );
       //dispatch(setMessage("success", false, null));
       //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {

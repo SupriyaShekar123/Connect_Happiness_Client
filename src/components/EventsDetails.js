@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getEventsDetails } from "../store/eventsDetails/actions";
 import { selectEventsDetails } from "../store/eventsDetails/selectors";
 import { selectToken } from "../store/user/selectors";
-import { participents } from "../store/eventsDetails/actions";
+import { participents, removeUser } from "../store/eventsDetails/actions";
 import { selectUser } from "../store/user/selectors";
 
 export default function EventsDetails() {
@@ -19,12 +19,16 @@ export default function EventsDetails() {
   const eventDetails = useSelector(selectEventsDetails);
   console.log("eventsDetails", eventDetails);
 
-  const t = eventDetails.map((prticepents) => {
-    const findParticepents = prticepents.participents.find(
-      (event) => event.userId === userId.id
-    );
-    console.log(" VALUE PARTICIPENTS :", findParticepents);
-  });
+  // const t = eventDetails.map((prticepents) => {
+  //   const findParticepents = prticepents.participents.find((event) => {
+  //     if (event.userId === userId.id) {
+  //       return event.id;
+  //     }
+  //   });
+
+  //   console.log(" VALUE PARTICIPENTS :", findParticepents.id);
+
+  // });
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -46,6 +50,26 @@ export default function EventsDetails() {
       dispatch(participents(datas));
       history.push("/ourServices");
     }
+  }
+
+  // const participentsId = eventDetails.map((participent) => {
+  //   return participent.participents.id;
+  // });
+  // console.log("Ids", participentsId);
+  function remove() {
+    console.log("removed");
+    const t = eventDetails.map((prticepents) => {
+      const findParticepents = prticepents.participents.find((event) => {
+        if (event.userId === userId.id) {
+          return event.id;
+        }
+      });
+
+      console.log(" VALUE PARTICIPENTS :", findParticepents.id);
+      const id = findParticepents.id;
+      dispatch(removeUser(id));
+    });
+    history.push("/ourservices");
   }
 
   return (
@@ -85,9 +109,17 @@ export default function EventsDetails() {
               const findParticepents = prticepents.participents.find(
                 (event) => event.userId === userId.id
               );
+              console.log("find", findParticepents);
 
               if (findParticepents === undefined) {
                 return <button onClick={submit}>Join this event</button>;
+              } else if (findParticepents !== undefined) {
+                return (
+                  <div>
+                    <p>You are attending</p>
+                    <button onClick={remove}>Cancle</button>
+                  </div>
+                );
               }
             })
             // userId.roles != "seniorCitizen" && (
