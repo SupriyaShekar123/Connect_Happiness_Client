@@ -26,7 +26,7 @@ export default function Navigation() {
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='basic-navbar-nav'>
         <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path='/' linkText='Home' />
+          <NavbarItem exact path='/' linkText='Home' />
           <NavbarItem path='/ourservices' linkText='Events' />
           {token === null ||
           seniorCitizen.roles === "general" ||
@@ -42,7 +42,13 @@ export default function Navigation() {
           ) : (
             <NavbarItem path='/shoppingDetails' linkText='Open Requests' />
           )}
-          <NavbarItem path='/myrequest' linkText='My Requests' />
+          {token === null ||
+          seniorCitizen.roles === "general" ||
+          seniorCitizen.roles === "volunteer" ? (
+            history.push("./login")
+          ) : (
+            <NavbarItem exact path='/myrequest' linkText='My Requests' />
+          )}
           {token === null ||
           seniorCitizen.roles === "general" ||
           seniorCitizen.roles === "volunteer" ? (

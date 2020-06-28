@@ -31,6 +31,7 @@ import ShoppingLisData from "./components/ShoppingLisData";
 
 import { selectUser, selectToken } from "./store/user/selectors";
 import EventForm from "./components/EventForm";
+import MyRequests from "./components/MyRequests";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <div className='App'>
-      <SSEClient />
+      {/* <SSEClient /> */}
       {/* <nav> */}
       {/* <NavLink
           activeStyle={{
@@ -134,6 +135,7 @@ function App() {
         {/* <Route exact path='/sse' component={SSEClient} /> */}
         <Route exact path='/' component={Home} />
 
+        <Route exact path='/signup' component={SignUp} />
         <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} />
         <Route path='/ourservices' component={OurServices} />
@@ -141,7 +143,9 @@ function App() {
         <Route path='/shopping' component={ShoppingLists} />
         <Route path='/shoppingDetails' exact component={ShoppingDetails} />
         <Route path='/shoppingDetails/:id' component={ShoppingLisData} />
-        <Route path='/eventform' component={EventForm} />
+        <Route exact path='/eventform' component={EventForm} />
+
+        <Route exact path='/myrequest' component={MyRequests} />
       </Switch>
     </div>
   );

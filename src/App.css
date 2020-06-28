@@ -12,6 +12,12 @@
 
 /* HOME PAGE  */
 
+.div_homepage_main {
+    margin: auto;
+    padding: 2%;
+    width: 90%;
+}
+
 .image {
     width: 150px;
     height: 200px;
@@ -51,7 +57,7 @@
 img {
     max-width: 100%;
     max-height: 100%;
-    /* display: block; */
+    display: block;
     object-fit: contain;
 }
 
@@ -62,6 +68,9 @@ img {
     transform: translate(-50%, -50%);
 }
 
+
+/* OUR SERVICES DESIGN */
+
 .div_ourservices {
     display: grid;
     grid-template-columns: repeat(4, minmax(150px, 1fr));
@@ -71,27 +80,41 @@ img {
     /* display: inline-block; */
 }
 
+.div_ourservice_image {
+    width: 100%;
+    height: 100%;
+    /* border: 3px solid #73ad21; */
+}
+
+.div_ourservice_image img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    /* border: brown; */
+    object-fit: cover;
+}
+
 .div_inner_details {
     position: relative;
     text-align: center;
     color: rgb(70, 110, 241);
     text-shadow: 1px 1px white;
     display: grid;
-    /* show details  */
-    /* grid-template-columns: repeat(3, minmax(100px, 1fr)); */
-    /* border: 3px solid #73ad21; */
-    /* width: 30%;
-    height: 30%; */
-    /* max-width: 100%;
-    max-height: 100%; */
-    /* display: block; */
     display: inline-block;
     overflow: auto;
     justify-content: center;
     align-items: center;
-    padding: 5%;
+    /* padding: 5%; */
     box-shadow: initial;
     /* position: absolute; */
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 1px 3px 2px 4px #ccc;
+    border-radius: 4%;
+    /*supported by all latest Browser*/
+    -moz-border-radius: 4%;
+    /*For older Browser*/
+    -webkit-border-radius: 4%;
 }
 
 .input {
@@ -139,26 +162,99 @@ img {
     width: 300px;
 }
 
-.div_eventDetails {
-    /* width: 516px; */
+
+/* EVENT DETAILS  */
+
+.div_event_detail_main {
+    margin: auto;
     padding: 2%;
+    width: 97%;
 }
 
-.image_events {
-    max-width: 100%;
-    max-height: 100%;
-    /* border: brown; */
-    object-fit: cover;
+.div_event_join_btn_main {
+    /* padding-top: 5%; */
+    align-items: left;
+    display: flex;
+}
+
+.event_detail_btn {
+    border: none;
+    /* padding: 8px 15px 8px 15px; */
+    background: #ff8500;
+    color: #fff;
+    box-shadow: 1px 1px 4px #dadada;
+    -moz-box-shadow: 1px 1px 4px #dadada;
+    -webkit-box-shadow: 1px 1px 4px #dadada;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 10px 15px 8px 15px;
+}
+
+.div_eventDetails {
+    /* width: 516px; */
+    /* padding: 1%; */
+    /* border: 3px solid #a121ad; */
+    width: 100%;
+    float: left;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .div_events_image {
     /* height: 500px;
     width: 500px; */
-    /* border: 3px solid #73ad21; */
+    /* border: 3px solid #231a9c; */
     float: left;
-    width: 50%;
+    width: 40%;
     padding: 10px;
     height: 250px;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    /* padding-right: 2%; */
+}
+
+.div_event_detial_right_div {
+    /* border: 3px solid #0c0c0c; */
+    width: 60%;
+    padding: 10px;
+    display: inline-block;
+    padding-left: 4%;
+}
+
+.div_event_title div {
+    padding-bottom: 1%;
+}
+
+.div_events_image1 img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    /* border: brown; */
+    object-fit: cover;
+}
+
+.div_events_image1 {
+    align-items: right;
+    width: 90%;
+    height: 100%;
+    /* border: 3px solid #73ad21; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* padding-left: 10px; */
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 1px 3px 2px 4px #ccc;
+    border-radius: 4%;
+    /*supported by all latest Browser*/
+    -moz-border-radius: 4%;
+    /*For older Browser*/
+    -webkit-border-radius: 4%;
 }
 
 .row:after {
@@ -175,10 +271,6 @@ img {
 
 .div_event_title {
     text-align: left;
-}
-
-.event_join_btn {
-    padding-top: 5%;
 }
 
 .event_form {
@@ -224,16 +316,6 @@ img {
     font: 14px Arial, Helvetica, sans-serif;
     /* display: flex;
     justify-content: center;*/
-}
-
-.div_inner_event_form label {
-    /* display: block;
-    margin: 0px 0px 15px 0px; */
-    /* width: 100px; */
-    /* font-weight: bold; */
-    /* float: left;
-    padding-top: 8px;
-    padding-right: 5px; */
 }
 
 .div_inner_event_form input,

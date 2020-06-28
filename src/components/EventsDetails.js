@@ -73,61 +73,67 @@ export default function EventsDetails() {
   }
 
   return (
-    <div className='div_eventDetails'>
-      {eventDetails.map((details) => {
-        return (
-          <div className='div_events_image' key={details.id}>
-            <img className='image_events' src={details.imageUrl} />
-          </div>
-        );
-      })}
-
-      <div className='div_events_image'>
-        {eventDetails.map((details) => {
-          return (
-            <div className='div_event_title' key={details.id}>
-              <h2>{details.title}</h2>
-              <div> location : {details.location}</div>
-              <div>
-                {" "}
-                date :{" "}
-                {new Intl.DateTimeFormat("en-FB", {
-                  year: "numeric",
-                  month: "long",
-                  day: "2-digit",
-                  hour: "numeric",
-                  minute: "numeric",
-                }).format(Date.parse(details.date))}{" "}
+    <div className='div_event_detail_main'>
+      <div className='div_eventDetails'>
+        <div className='div_events_image'>
+          {eventDetails.map((details) => {
+            return (
+              <div className='div_events_image1' key={details.id}>
+                <img className='image_events' src={details.imageUrl} />
               </div>
-              <div> Number of people joined :{details.participents.length}</div>
-            </div>
-          );
-        })}
-        <div className='event_join_btn'>
-          {
-            eventDetails.map((prticepents) => {
+            );
+          })}
+        </div>
+        <div className='div_event_detial_right_div'>
+          {eventDetails.map((details) => {
+            return (
+              <div className='div_event_title' key={details.id}>
+                <h2>{details.title}</h2>
+                <div> Location : {details.location}</div>
+                <div>
+                  Date :{" "}
+                  {new Intl.DateTimeFormat("en-FB", {
+                    year: "numeric",
+                    month: "long",
+                    day: "2-digit",
+                    hour: "numeric",
+                    minute: "numeric",
+                  }).format(Date.parse(details.date))}{" "}
+                </div>
+                <div> No. people joined : {details.participents.length}</div>
+              </div>
+            );
+          })}
+          <div className='div_event_join_btn_main'>
+            {eventDetails.map((prticepents) => {
               const findParticepents = prticepents.participents.find(
                 (event) => event.userId === userId.id
               );
-              console.log("find", findParticepents);
+              // console.log("find", findParticepents);
 
               if (findParticepents === undefined) {
-                return <button onClick={submit}>Join this event</button>;
+                return (
+                  <div className='div_event_detail_btn'>
+                    <button className='event_detail_btn' onClick={submit}>
+                      Join this event
+                    </button>
+                  </div>
+                );
               } else if (findParticepents !== undefined) {
                 return (
-                  <div>
-                    <p>You are attending</p>
-                    <button onClick={remove}>Cancle</button>
+                  <div className='div_event_detail_btn'>
+                    <p>You have joined this event </p>
+                    <button className='event_detail_btn' onClick={remove}>
+                      Cancel Event
+                    </button>
                   </div>
                 );
               }
-            })
-            // userId.roles != "seniorCitizen" && (
-            //   <button onClick={submit}>Join this event</button>
-            // )
-          }
+            })}
+          </div>
         </div>
       </div>
+
       <div className='div_events_detail'>
         <div>
           <h3>Details</h3>

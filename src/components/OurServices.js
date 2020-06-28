@@ -25,12 +25,9 @@ export default function OurServices() {
           <div className='div_inner_details'>
             <Link to={`/events/${events.id}`}>
               <div className='event_title'>{events.title}</div>
-              <img src={events.imageUrl} />
-            </Link>
-
-            {/* <p>{events.detail}</p> */}
-            <Link to={`/events/${events.id}`}>
-              {/* <button>Read More</button> */}
+              <div className='div_ourservice_image'>
+                <img src={events.imageUrl} />
+              </div>
             </Link>
           </div>
         );

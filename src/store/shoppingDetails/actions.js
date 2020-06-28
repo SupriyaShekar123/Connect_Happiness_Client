@@ -43,3 +43,17 @@ export function updateShopping(id, update) {
     }
   };
 }
+
+export const getUserRequestDetails = (id) => {
+  console.log("USER ID FOR SHOPPEING ", id);
+  return async (dispatch, getState) => {
+    dispatch({ type: "SHOPPING_DETAIL_LOADING" });
+    try {
+      const response = await axios.get(`http://localhost:4000/user/${id}`);
+      console.log("THE RESPONSE USER REQUEST DETAILS", response.data);
+      dispatch({ type: "SHOPPING_DETAIL_LOADED", payload: response.data });
+    } catch (error) {
+      dispatch({ type: "SHOPPING_DETAIL_ERROR" });
+    }
+  };
+};
