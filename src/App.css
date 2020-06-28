@@ -9,12 +9,18 @@
     box-sizing: border-box;
 }
 
+
+/* HOME PAGE  */
+
 .image {
-    width: 100px;
-    /* Or whatever */
+    width: 150px;
     height: 200px;
     /* Or whatever */
     margin: auto;
+    -moz-box-shadow: 3px 3px 5px 5px #ccc;
+    -webkit-box-shadow: 2px 2px 4px 5px #ccc;
+    box-shadow: 2px 2px 3px 3px #ccc;
+    padding: 3px;
 }
 
 .div_homepage {
@@ -24,6 +30,15 @@
     padding: 10px;
     align-items: center;
     text-align: center;
+    padding: 20px 12px 10px 20px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    /* border-radius: 4%; */
+    /* -moz-border-radius: 4%; */
+    /*For older Browser*/
+    /* -webkit-border-radius: 4%; */
+    /* font: 14px Arial, Helvetica, sans-serif; */
 }
 
 .homepage_paragraph {
@@ -175,23 +190,40 @@ img {
     /* pointer-events: none; */
 }
 
+
+/* THE EVENT CREATE FORM */
+
 .div_main_event_form {
     margin: auto;
     width: 50%;
+    padding-top: 3%;
     /* border: 3px solid #73ad21; */
+    /* align-items: center; */
 }
 
 .div_inner_event_form {
-    /* margin: auto;
-    width: 50%;
+    margin: auto;
+    width: 70%;
     /* border: 3px solid #73ad21; */
     /* padding: 10px; */
     /* align-items: center; */
     /* text-align: left; */
     /* max-width: 500px; */
     padding: 20px 12px 10px 20px;
-    font: 13px Arial, Helvetica, sans-serif;
-    border: 3px solid #73ad21;
+    /* font: 13px Arial, Helvetica, sans-serif; */
+    /* border: 3px solid red; */
+    padding: 20px 12px 10px 20px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    border-radius: 4%;
+    /*supported by all latest Browser*/
+    -moz-border-radius: 4%;
+    /*For older Browser*/
+    -webkit-border-radius: 4%;
+    font: 14px Arial, Helvetica, sans-serif;
+    /* display: flex;
+    justify-content: center;*/
 }
 
 .div_inner_event_form label {
@@ -199,13 +231,14 @@ img {
     margin: 0px 0px 15px 0px; */
     /* width: 100px; */
     /* font-weight: bold; */
-    float: left;
+    /* float: left;
     padding-top: 8px;
-    padding-right: 5px;
+    padding-right: 5px; */
 }
 
-.div_inner_event_form input {
-    /* width: 40%; */
+.div_inner_event_form input,
+textarea {
+    width: 70%;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -216,9 +249,40 @@ img {
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    padding: 7px;
+    /* padding: 7px; */
     outline: none;
     /* float: right; */
+}
+
+.div_event_left {
+    text-align: left;
+    /* padding-left: 200px; */
+    float: left;
+    width: 20%;
+    /* border: 3px solid royalblue; */
+    /* padding: 1%; */
+    padding-top: 6px;
+    display: inline-block;
+}
+
+.div_event_right {
+    /* position: relative;
+    left: 3%; */
+    /* border: 3px solid #73ad21; */
+    width: 80%;
+    /* padding: 2%; */
+    text-align: left;
+    display: inline-block;
+    /* padding-top: 4px; */
+    display: inline-block;
+    /* word-wrap: break-word; */
+    padding: 6px;
+    /* padding-top: 2px; */
+    /* border: 3px solid #ff8500; */
+}
+
+.div_event_create_submit_btn {
+    padding: 3%;
 }
 
 .div_inner_event_form button {
@@ -238,28 +302,14 @@ img {
 
 .div_inner_event_form textarea {
     height: 100px;
-    /* width: 40%; */
+    width: 70%;
     /* width: 55%; */
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
 
-td,
-th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+/* Shopping details  design */
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.div-padding {
+.div_shoppingdetails_main_div {
     /* padding: 2%; */
     margin: auto;
     width: 70%;
@@ -267,7 +317,52 @@ tr:nth-child(even) {
     padding: 3%;
     align-items: center;
     text-align: center;
+    /* padding: 20px 12px 10px 20px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc; */
 }
+
+table {
+    /* font-family: arial, sans-serif; */
+    border-collapse: collapse;
+    width: 100%;
+    font: 13px Arial, Helvetica, sans-serif;
+    padding: 20px 12px 10px 20px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    /* border: 2px solid #313131; */
+}
+
+th {
+    font: 13px Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+    background-color: #575655;
+    padding: 8px;
+    border: 1px solid #dddddd;
+    color: #dddddd;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+
+
+/* tr:nth-child(odd) {
+    background-color: #aaaaaa;
+    font: 13px Arial, Helvetica, sans-serif;
+} */
 
 
 /* SHOPPING FORM CSS DETAILS  */
@@ -276,7 +371,7 @@ tr:nth-child(even) {
     margin: auto;
     width: 60%;
     /* border: 3px solid #73ad21; */
-    padding: 1%;
+    padding: 4%;
     align-items: center;
     text-align: left;
 }
@@ -285,7 +380,7 @@ tr:nth-child(even) {
     margin: auto;
     width: 60%;
     /* border: 3px solid red; */
-    padding: 3%;
+    padding: 5%;
     align-items: center;
     /* text-align: left; */
     padding: 20px 12px 10px 20px;
@@ -307,6 +402,7 @@ tr:nth-child(even) {
     margin-bottom: 20px;
     font-size: 15px;
     padding-bottom: 3px;
+    text-align: left;
 }
 
 .div_req_left {

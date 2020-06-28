@@ -20,36 +20,52 @@ export default function ShoppingDetails() {
   }, [dispatch]);
 
   return (
-    <div className='div-padding'>
-      <table>
+    <div className='div_shoppingdetails_main_div'>
+      <div className='div_shooping_req_heading'>
+        Open Requests Which Needs Help{" "}
+      </div>
+      <div>
+        {" "}
+        ** click on the name column to see more information of the requestor{" "}
+      </div>
+      <table className='request_table'>
         <tr>
           <th>Name</th>
-          <th>Email</th>
-          <th>category</th>
-          <th>lists</th>
-          <th>RequiredBy</th>
+          <th>Address</th>
+          <th>Request Type</th>
+          <th>Request Details</th>
+          <th>Request End date</th>
           <th>Status</th>
 
-          <th>Details</th>
+          {/* <th>Details</th> */}
         </tr>
         {shoppinglists.map((lists) => {
           return (
-            <tr>
-              <td>{lists.user.name}</td>
-              <td>{lists.user.email}</td> <td>{lists.category}</td>
-              <td>{lists.list}</td>
+            <tr key={lists.id}>
               <td>
-                {" "}
+                <Link to={`/shoppingDetails/${lists.id}`}>
+                  {lists.user.name}
+                </Link>
+              </td>
+
+              <td>
+                {lists.user.house_num} , {lists.user.street} ,
+                {lists.user.postcode}, {lists.user.city}
+              </td>
+              <td>{lists.category}</td>
+              <td>{lists.list}</td>
+
+              <td>
                 {new Intl.DateTimeFormat("en-FB", {
                   year: "numeric",
                   month: "long",
                   day: "2-digit",
-                  hour: "numeric",
-                  minute: "numeric",
+                  // hour: "numeric",
+                  // minute: "numeric",
                 }).format(Date.parse(lists.requiredBy))}{" "}
               </td>
               <td>{lists.status}</td>
-              {roles !== "seniorCitizen" ? (
+              {/* {roles !== "seniorCitizen" ? (
                 <Link to={`/shoppingDetails/${lists.id}`}>
                   {" "}
                   <td>
@@ -59,7 +75,9 @@ export default function ShoppingDetails() {
                 </Link>
               ) : (
                 <td>Updated</td>
-              )}
+              )} */}
+
+              {/* <Link to={`/shoppingDetails/${lists.id}`}></Link> */}
             </tr>
           );
         })}

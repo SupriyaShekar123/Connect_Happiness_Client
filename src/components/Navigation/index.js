@@ -33,13 +33,16 @@ export default function Navigation() {
           seniorCitizen.roles === "volunteer" ? (
             history.push("/login")
           ) : (
-            <NavbarItem path='/shopping' linkText='Shopping' />
+            <NavbarItem path='/shopping' linkText='Request' />
           )}
-          {token === null || seniorCitizen.roles === "general" ? (
+          {token === null ||
+          seniorCitizen.roles === "general" ||
+          seniorCitizen.roles === "seniorCitizen" ? (
             history.push("./login")
           ) : (
             <NavbarItem path='/shoppingDetails' linkText='Open Requests' />
           )}
+          <NavbarItem path='/myrequest' linkText='My Requests' />
           {token === null ||
           seniorCitizen.roles === "general" ||
           seniorCitizen.roles === "volunteer" ? (

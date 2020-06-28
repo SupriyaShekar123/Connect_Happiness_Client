@@ -43,44 +43,69 @@ export default function EventForm() {
   return (
     <div className='div_main_event_form'>
       <div className='div_inner_event_form'>
+        <div class='div_shooping_req_heading'>Provide Details for Event</div>
         <form>
-          <label>Title</label>
-          <input
-            className='event_form'
-            type='text'
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          />
-          <label>Detail</label>
-          <textarea
-            className='event_form'
-            type='text'
-            value={detail}
-            onChange={(event) => setDetail(event.target.value)}
-          />
-          <label>ImageUrl</label>
-          <input
-            className='event_form'
-            type='url'
-            value={imageUrl}
-            onChange={(event) => setImageUrl(event.target.value)}
-          />
-          <label>Date</label>
-          <input
-            className='event_form_date_value'
-            type='datetime-local'
-            min={today[0] + ":" + today[1]}
-            value={date}
-            onChange={(event) => setDate(event.target.value)}
-          />
-          <label>location</label>
-          <input
-            className='event_form'
-            type='address'
-            value={location}
-            onChange={(event) => setLocation(event.target.value)}
-          />
-          <button onClick={submit}>Add this Event</button>
+          <div className='div_event_left'>
+            <label>Title</label>
+          </div>
+          <div className='div_event_right'>
+            <input
+              className='event_form'
+              type='text'
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+            />
+          </div>
+          <div className='div_event_left'>
+            <label>Detail</label>
+          </div>
+          <div className='div_event_right'>
+            <textarea
+              className='event_form'
+              type='text'
+              value={detail}
+              onChange={(event) => setDetail(event.target.value)}
+            />
+          </div>
+          <div className='div_event_left'>
+            <label>ImageUrl</label>
+          </div>
+          <div className='div_event_right'>
+            <input
+              className='event_form'
+              type='url'
+              value={imageUrl}
+              onChange={(event) => setImageUrl(event.target.value)}
+            />
+          </div>
+          <div className='div_event_left'>
+            <label>Date</label>
+          </div>
+
+          <div className='div_event_right'>
+            <input
+              className='event_form_date_value'
+              type='datetime-local'
+              min={today[0] + ":" + today[1]}
+              value={date}
+              onChange={(event) => setDate(event.target.value)}
+            />
+          </div>
+          <div className='div_event_left'>
+            <label>location</label>
+          </div>
+
+          <div className='div_event_right'>
+            <input
+              className='event_form'
+              type='address'
+              value={location}
+              onChange={(event) => setLocation(event.target.value)}
+            />
+          </div>
+          <div className='div_event_create_submit_btn'>
+            <button onClick={submit}>Create Event</button>
+          </div>
         </form>
       </div>
     </div>
