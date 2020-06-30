@@ -1,4 +1,4 @@
-### Connect Happiness
+### Connect Happiness ![alt text][logo.png]
 
 ### What this app about?
 

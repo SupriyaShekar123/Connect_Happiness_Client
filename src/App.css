@@ -636,3 +636,30 @@ textarea {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
 }
+
+
+/*  MESSAGE Screen  */
+
+.div_message_main {
+    padding: 2%;
+    margin: auto;
+    width: 60%;
+}
+
+.div_message_main textarea {
+    height: 150px;
+    width: 60%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #c2c2c2;
+    box-shadow: 1px 1px 4px #ebebeb;
+    -moz-box-shadow: 1px 1px 4px #ebebeb;
+    -webkit-box-shadow: 1px 1px 4px #ebebeb;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+    font: 13px Arial, Helvetica, sans-serif;
+}

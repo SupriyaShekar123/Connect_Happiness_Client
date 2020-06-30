@@ -32,6 +32,7 @@ import ShoppingLisData from "./components/ShoppingLisData";
 import { selectUser, selectToken } from "./store/user/selectors";
 import EventForm from "./components/EventForm";
 import MyRequests from "./components/MyRequests";
+import Message from "./components/Message";
 
 function App() {
   const dispatch = useDispatch();
@@ -144,7 +145,7 @@ function App() {
         <Route path='/shoppingDetails' exact component={ShoppingDetails} />
         <Route path='/shoppingDetails/:id' component={ShoppingLisData} />
         <Route exact path='/eventform' component={EventForm} />
-
+        <Route exact path='/message' component={Message} />
         <Route exact path='/myrequest' component={MyRequests} />
       </Switch>
     </div>

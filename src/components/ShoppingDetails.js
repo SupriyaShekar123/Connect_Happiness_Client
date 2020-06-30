@@ -19,6 +19,10 @@ export default function ShoppingDetails() {
     dispatch(getShoppingDetails);
   }, [dispatch]);
 
+  if (!shoppinglists) {
+    return <div>loading...</div>;
+  }
+
   return (
     <div className='div_shoppingdetails_main_div'>
       <div className='div_shooping_req_heading'>
@@ -65,19 +69,6 @@ export default function ShoppingDetails() {
                 }).format(Date.parse(lists.requiredBy))}{" "}
               </td>
               <td>{lists.status}</td>
-              {/* {roles !== "seniorCitizen" ? (
-                <Link to={`/shoppingDetails/${lists.id}`}>
-                  {" "}
-                  <td>
-                    {" "}
-                    <button>View Details</button>{" "}
-                  </td>
-                </Link>
-              ) : (
-                <td>Updated</td>
-              )} */}
-
-              {/* <Link to={`/shoppingDetails/${lists.id}`}></Link> */}
             </tr>
           );
         })}

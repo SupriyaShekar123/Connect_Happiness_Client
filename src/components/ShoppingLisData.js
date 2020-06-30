@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import {
   getShoppingDetails,
   updateShopping,
@@ -10,6 +10,7 @@ import { selectUser } from "../store/user/selectors";
 import EventsDetails from "./EventsDetails";
 
 export default function ShoppingLisData() {
+  //const [message, setMessage] = useState(false);
   const { id } = useParams();
   console.log("Params", id);
   const shoppingDetails = useSelector(selectShoppingDetails);
@@ -100,11 +101,12 @@ export default function ShoppingLisData() {
             if (details.status != "close") {
               return (
                 <div>
-                  <button
-                    className='btn_shopping_detils_connect'
-                    onClick={updateData}>
-                    connect
-                  </button>
+                  <Link to='/message'>
+                    <button className='btn_shopping_detils_connect'>
+                      {/* // onClick={updateData}> */}
+                      Send Message
+                    </button>
+                  </Link>
                 </div>
               );
             }

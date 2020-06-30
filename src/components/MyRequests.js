@@ -23,6 +23,10 @@ export default function ShoppingDetails() {
     dispatch(getUserRequestDetails(id));
   }, [dispatch, id]);
 
+  if (!shoppinglists) {
+    return <div>loading...</div>;
+  }
+
   return (
     <div className='div_shoppingdetails_main_div'>
       <div className='div_shooping_req_heading'>My Requests</div>
