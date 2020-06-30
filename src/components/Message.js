@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { updateShopping } from "../store/shoppingDetails/actions";
 import { selectUser } from "../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectShoppingDetails } from "../store/shoppingDetails/selectors";
 
 export default function Message() {
+  const history = useHistory();
   //   const { id } = useParams();
   //   console.log("Params", id);
   const [uemailMsg, setEmail] = useState("");
@@ -68,21 +70,25 @@ export default function Message() {
         emailDetails
       );
       dispatch(updateShopping(userId[0].id, update, emailDetails));
+      history.push("/shoppingDetails");
     }
   }
   return (
     <div className='div_message_main'>
-      <form>
-        <label>Please send an confirm message if you are willing to help</label>
-        <textarea
-          type='text'
-          //   placeholder={email}
-          defaultValue={uemailMsg}
-          onBlur={(event) => setEmail(event.target.value)}
-        />
-
-        <button onClick={updateData}>send</button>
-      </form>
+      <div className='div_message_border'>
+        <div class='div_shooping_req_heading'>confirm by sending message</div>
+        <form>
+          <textarea
+            type='text'
+            //   placeholder={email}
+            defaultValue={uemailMsg}
+            onBlur={(event) => setEmail(event.target.value)}
+          />
+          <div className='btn_shopping_detils_send'>
+            <button onClick={updateData}>send</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ import {
 export async function getShoppingDetails(dispatch, getstate) {
   dispatch({ type: "SHOPPINGDETAILS_LOADING" });
   try {
-    const response = await axios.get("http://localhost:4000/shopping"); //http://localhost:4000/stream`
+    const response = await axios.get("http://localhost:4000/shopping");
 
     console.log("THE RESPONSE ", response.data);
     dispatch({ type: "SHOPPINGDETAILS_LOADED", payload: response.data });
@@ -62,7 +62,6 @@ export function shopping(lists) {
         console.log("The error is ", error.message);
         dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }

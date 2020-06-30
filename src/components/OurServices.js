@@ -1,18 +1,13 @@
 import React, { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getEventsLists } from "../store/events/actions";
 import { selectEventsLists } from "../store/events/selectors";
-import { selectUser, selectToken } from "../store/user/selectors";
 
 export default function OurServices() {
   const eventLists = useSelector(selectEventsLists);
-  const token = useSelector(selectToken);
-  const user = useSelector(selectUser);
-  console.log("EventsList", eventLists);
-  const history = useHistory();
-
   const dispatch = useDispatch();
+  // console.log("EventsList", eventLists);
 
   useEffect(() => {
     dispatch(getEventsLists);
@@ -32,17 +27,7 @@ export default function OurServices() {
           </div>
         );
       })}
-      <div>
-        {/* {token === null ||
-        user.roles === "general" ||
-        user.roles === "volunteer" ? (
-          history.push("./login")
-        ) : (
-          <Link to={"/eventform"}>
-            <button>Start an event</button>
-          </Link>
-        )} */}
-      </div>
+      <div></div>
     </div>
   );
 }

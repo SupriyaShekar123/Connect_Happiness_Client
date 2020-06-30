@@ -1,4 +1,11 @@
 import axios from "axios";
+import {
+  appLoading,
+  appDoneLoading,
+  showMessageWithTimeout,
+  setMessage,
+  clearMessage,
+} from "../appState/actions";
 
 export const getShoppingDetails = (id) => {
   //console.log("email :", email, " Password :", password);
@@ -28,6 +35,14 @@ export function updateShopping(id, update, emailDetials) {
       //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "UPDATE_SHOPPING", payload: response.data });
       dispatch(confirmMail(emailDetials));
+      dispatch(
+        showMessageWithTimeout(
+          "success",
+          false,
+          "Your message was sent. Thank you.",
+          2500
+        )
+      );
 
       //dispatch(setMessage("success", false, null));
       //dispatch({ type: "SUCESS_AUCTION", payload: response.data });

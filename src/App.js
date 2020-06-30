@@ -10,7 +10,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 
-import { Switch, Route, NavLink, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
@@ -20,7 +20,7 @@ import Login from "./pages/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-import SSEClient from "./components/SSEClient";
+// import SSEClient from "./components/SSEClient";
 
 import Home from "./components/Home";
 import OurServices from "./components/OurServices";
@@ -60,72 +60,6 @@ function App() {
   return (
     <div className='App'>
       {/* <SSEClient /> */}
-      {/* <nav> */}
-      {/* <NavLink
-          activeStyle={{
-            fontWeight: "bold",
-            color: "red",
-          }}
-          to='/'>
-          Home
-        </NavLink> */}
-      {/* <NavLink
-          activeStyle={{
-            fontWeight: "bold",
-            color: "green",
-          }}
-          to='/ourservices'>
-          OurServices
-        </NavLink> */}
-      {/* <NavLink
-          activeStyle={{
-            fontWeight: "bold",
-            color: "blue",
-          }}
-          to='/login'>
-          Login
-        </NavLink> */}
-      {/* {token === null ||
-        seniorCitizen.roles === "general" ||
-        seniorCitizen.roles === "volunteer" ? (
-          history.push("/login")
-        ) : (
-          <NavLink
-            activeStyle={{
-              fontWeight: "bold",
-              color: "blue",
-            }}
-            to='/shopping'>
-            Shopping
-          </NavLink>
-        )}
-        {token === null || seniorCitizen.roles === "general" ? (
-          history.push("./login")
-        ) : (
-          <NavLink
-            activeStyle={{
-              fontWeight: "bold",
-              color: "blue",
-            }}
-            to='/shoppingDetails'>
-            Open
-          </NavLink>
-        )}
-        {token === null ||
-        seniorCitizen.roles === "general" ||
-        seniorCitizen.roles === "volunteer" ? (
-          history.push("/login")
-        ) : (
-          <NavLink
-            activeStyle={{
-              fontWeight: "bold",
-              color: "blue",
-            }}
-            to='/eventform'>
-            Create an event
-          </NavLink>
-        )}
-      </nav> */}
 
       <Navigation />
       <MessageBox />

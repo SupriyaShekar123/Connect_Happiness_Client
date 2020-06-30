@@ -55,7 +55,7 @@ export default function ShoppingLists() {
     <div className='shopping_form'>
       <div className='div_inner_req_form'>
         <div class='div_shooping_req_heading'>
-          Provide Your Request Information
+          Provide Your Request information
         </div>
         <form>
           <div className='div_req_left'>

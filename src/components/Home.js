@@ -13,6 +13,7 @@ export default function Home() {
           <img
             className='image'
             src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShqo9WKI_O_mJf-JD6U9fOxi5dS5p3UcZcbw&usqp=CAU'
+            alt='connect happiness'
           />
         </div>
         <div className='homepage_paragraph'>
@@ -37,23 +38,6 @@ export default function Home() {
             Help is given to those in need free of charge although a reasonable
             charge is usually made for transport mileage.
           </p>{" "}
-          {/* <h5>
-          {" "}
-          Connect Happiness respond to the needs of local people by providing
-          help with activities such as:
-        </h5>{" "} */}
-          {/* <div>
-          <ul>
-            <li>Befriending</li> home visiting, companionship, someone to go to
-            social events with Dog walking and caring for pets during holiday or
-            illness Errands and shopping Filling in forms, writing letters,
-            reading and help to use computers and the internet Gardening Giving
-            lifts to a GP surgery, clinic, hospital, Day Centre, other
-            appointments Household tasks including tuning televisions, changing
-            light bulbs and smoke alarms Moving furniture, taking down and
-            hanging curtains and pictures
-          </ul>
-        </div> */}
         </div>
       </div>
     </div>

@@ -7,12 +7,12 @@ import { selectUser } from "../store/user/selectors";
 
 export default function ShoppingDetails() {
   const shoppinglists = useSelector(selectShoppingLists);
-  console.log("Shopping lists", shoppinglists);
+  // console.log("Shopping lists", shoppinglists.length);
   const dispatch = useDispatch();
   const seniorCitizens = useSelector(selectUser);
-  console.log("seniorCitizen", seniorCitizens.roles);
+  // console.log("seniorCitizen", seniorCitizens.roles);
   const roles = seniorCitizens.roles;
-  console.log("roles", roles);
+  // console.log("roles", roles);
   //const history = useHistory();
 
   useEffect(() => {
@@ -21,6 +21,14 @@ export default function ShoppingDetails() {
 
   if (!shoppinglists) {
     return <div>loading...</div>;
+  }
+  if (shoppinglists.length === 0) {
+    return (
+      <div className='center'>
+        All request has been cleared. Will let you know when new request is
+        made.
+      </div>
+    );
   }
 
   return (

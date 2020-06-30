@@ -21,7 +21,7 @@ export default function Navigation() {
   return (
     <Navbar bg='light' expand='lg'>
       <Navbar.Brand as={NavLink} to='/'>
-        Connect Happiness
+        <div className='app-logo'>Connect Happiness</div>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='basic-navbar-nav'>

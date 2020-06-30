@@ -568,31 +568,21 @@ textarea {
     padding: 2%;
     margin: auto;
     width: 70%;
-    /* border: 3px solid #73ad21; */
-    /* align-items: center; */
-    /* text-align: center; */
 }
 
 .div_border {
-    /* border: 2px solid black; */
     padding: 1%;
     margin: auto;
     width: 55%;
-    /* border: 3px solid #73ad21; */
     align-items: center;
     text-align: center;
     -moz-box-shadow: 3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
     box-shadow: 3px 3px 5px 6px #ccc;
     border-radius: 4%;
-    /*supported by all latest Browser*/
     -moz-border-radius: 4%;
     /*For older Browser*/
     -webkit-border-radius: 4%;
-    /*For older Browser*/
-    /* background-color: red; */
-    /* width: 500px;
-    height: 500px; */
 }
 
 .div_shopping_details_values {
@@ -637,18 +627,34 @@ textarea {
     -moz-border-radius: 3px;
 }
 
+.btn_shopping_detils_send {
+    /* border: none;
+    padding: 8px 15px 8px 15px;
+    font-size: 15px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #dadada;
+    -moz-box-shadow: 1px 1px 4px #dadada;
+    -webkit-box-shadow: 1px 1px 4px #dadada;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px; */
+}
+
 
 /*  MESSAGE Screen  */
 
 .div_message_main {
-    padding: 2%;
+    padding: 3%;
     margin: auto;
     width: 60%;
+    /* padding: 1%; */
+    /* margin: auto; */
+    /* width: 55%; */
 }
 
 .div_message_main textarea {
     height: 150px;
-    width: 60%;
+    width: 80%;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -662,4 +668,56 @@ textarea {
     padding: 7px;
     outline: none;
     font: 13px Arial, Helvetica, sans-serif;
+    padding-bottom: 30px;
+}
+
+.div_message_border {
+    padding-bottom: 20px;
+    padding: 1%;
+    margin: auto;
+    width: 65%;
+    align-items: center;
+    text-align: center;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    border-radius: 4%;
+    -moz-border-radius: 4%;
+    /*For older Browser*/
+    -webkit-border-radius: 4%;
+}
+
+.div_message_border button {
+    border: none;
+    /* padding: 8px 15px 8px 15px; */
+    background: #ff8500;
+    color: #fff;
+    box-shadow: 1px 1px 4px #dadada;
+    -moz-box-shadow: 1px 1px 4px #dadada;
+    -webkit-box-shadow: 1px 1px 4px #dadada;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 10px 15px 8px 15px;
+}
+
+
+/* Navigation bar design */
+
+.center {
+    text-align: center;
+    padding: 50px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.app-logo {
+    font-size: 25px;
+    color: #ff8500;
+    font-family: cursive;
+    border: 1px solid white;
+}
+
+.App {
+    padding: 30px;
 }
