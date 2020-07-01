@@ -32,7 +32,7 @@ export function updateShopping(id, update, emailDetials) {
         update
       );
 
-      //console.log("Auction  FORM  Response ", response.data);
+      console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "UPDATE_SHOPPING", payload: response.data });
       dispatch(confirmMail(emailDetials));
       dispatch(
