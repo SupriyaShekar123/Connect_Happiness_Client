@@ -13,7 +13,7 @@ import LoggedOut from "./LoggedOut";
 export default function Navigation() {
   const token = useSelector(selectToken);
   const seniorCitizen = useSelector(selectUser);
-  console.log("seniorCitizen", seniorCitizen.roles);
+  // console.log("seniorCitizen", seniorCitizen.roles);
   const history = useHistory();
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
@@ -27,20 +27,24 @@ export default function Navigation() {
       <Navbar.Collapse id='basic-navbar-nav'>
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem exact path='/' linkText='Home' />
-          <NavbarItem path='/ourservices' linkText='Events' />
+          <NavbarItem exact path='/ourservices' linkText='Events' />
           {token === null ||
           seniorCitizen.roles === "general" ||
           seniorCitizen.roles === "volunteer" ? (
             history.push("/login")
           ) : (
-            <NavbarItem path='/shopping' linkText='Request' />
+            <NavbarItem exact path='/shopping' linkText='Request' />
           )}
           {token === null ||
           seniorCitizen.roles === "general" ||
           seniorCitizen.roles === "seniorCitizen" ? (
             history.push("./login")
           ) : (
-            <NavbarItem path='/shoppingDetails' linkText='Open Requests' />
+            <NavbarItem
+              exact
+              path='/shoppingDetails'
+              linkText='Open Requests'
+            />
           )}
           {token === null ||
           seniorCitizen.roles === "general" ||
@@ -54,7 +58,7 @@ export default function Navigation() {
           seniorCitizen.roles === "volunteer" ? (
             history.push("/login")
           ) : (
-            <NavbarItem path='/eventform' linkText='Start an Event' />
+            <NavbarItem exact path='/eventform' linkText='Start an Event' />
           )}
 
           {loginLogoutControls}

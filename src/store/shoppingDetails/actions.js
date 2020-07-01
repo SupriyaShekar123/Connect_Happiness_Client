@@ -22,7 +22,7 @@ export const getShoppingDetails = (id) => {
 };
 
 export function updateShopping(id, update, emailDetials) {
-  console.log(" UPDATE SHOPPING : ", update, "Id is", id);
+  // console.log(" UPDATE SHOPPING : ", update, "Id is", id);
   return async (dispatch, getState) => {
     //const token = selectToken(getState());
 

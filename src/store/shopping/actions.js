@@ -21,12 +21,10 @@ export async function getShoppingDetails(dispatch, getstate) {
 }
 
 export function shopping(lists) {
-  console.log(" ShoppingLists ", lists);
-  const { category, list, userId } = lists;
+  // console.log(" ShoppingLists ", lists);
+  const { category, list, userId, requiredBy } = lists;
 
-  if (!category || !list || !userId) {
-    console.log("SHOPPING VALIDATATION : ", lists);
-
+  if (!category || !list || !userId || !requiredBy) {
     return async (dispatch, getState) => {
       dispatch(setMessage("danger", true, "Fill the mandatoary fields"));
     };
@@ -42,17 +40,19 @@ export function shopping(lists) {
 
       //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "LISTS_SUCCESS", payload: response.data });
-      // console.log("shopping id : ", response.data.id);
+
       const shoppingID = { spid: response.data.id };
       dispatch(sendMail(shoppingID));
+
       dispatch(
         showMessageWithTimeout(
           "success",
           false,
           "Your Request has submitted successfully",
-          2500
+          20500
         )
       );
+
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {

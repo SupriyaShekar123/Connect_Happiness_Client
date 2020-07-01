@@ -11,7 +11,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log("VALUE OF STATE IS ", action.payload);
   switch (action.type) {
     case APP_LOADING:
       return { ...state, loading: true };

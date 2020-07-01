@@ -44,9 +44,8 @@ export default function ShoppingDetails() {
         </tr>
         {shoppinglists.map((lists) => {
           const requestList = lists.shoppinglists.map((shopping) => {
-            console.log(shopping.category);
             return (
-              <tr key={lists.id}>
+              <tr key={shopping.id}>
                 <td>{lists.name}</td>
                 <td>
                   {lists.house_num} , {lists.street} ,{lists.postcode},{" "}

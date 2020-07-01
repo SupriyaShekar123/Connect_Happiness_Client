@@ -38,9 +38,9 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
   const seniorCitizen = useSelector(selectUser);
-  console.log("seniorCitizen", seniorCitizen.roles);
+  // console.log("seniorCitizen", seniorCitizen.roles);
   const token = useSelector(selectToken);
-  console.log("token", token);
+  // console.log("token", token);
 
   // const evtSource = new EventSource("http://localhost:4000/stream");
   // evtSource.onmessage = function (e) {
@@ -70,14 +70,19 @@ function App() {
         {/* <Route exact path='/sse' component={SSEClient} /> */}
         <Route exact path='/' component={Home} />
 
+        {/* <Route path='/signup' component={SignUp} /> */}
         <Route exact path='/signup' component={SignUp} />
-        <Route path='/signup' component={SignUp} />
-        <Route path='/login' component={Login} />
-        <Route path='/ourservices' component={OurServices} />
-        <Route path='/events/:id' component={EventsDetails} />
-        <Route path='/shopping' component={ShoppingLists} />
-        <Route path='/shoppingDetails' exact component={ShoppingDetails} />
-        <Route path='/shoppingDetails/:id' component={ShoppingLisData} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/ourservices' component={OurServices} />
+        <Route exact path='/events/:id' component={EventsDetails} />
+        <Route exact path='/shopping' component={ShoppingLists} />
+        <Route
+          exact
+          path='/shoppingDetails'
+          exact
+          component={ShoppingDetails}
+        />
+        <Route exact path='/shoppingDetails/:id' component={ShoppingLisData} />
         <Route exact path='/eventform' component={EventForm} />
         <Route exact path='/message' component={Message} />
         <Route exact path='/myrequest' component={MyRequests} />

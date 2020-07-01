@@ -26,6 +26,7 @@ export const showMessageWithTimeout = (
   text,
   timeOutMilliSeconds
 ) => {
+  console.log("MESSAGE FUNCTION IS CALLED <<<<<<<<< >>>>>>>>>>>>> < ");
   return (dispatch) => {
     dispatch(setMessage(variant, dismissable, text));
 

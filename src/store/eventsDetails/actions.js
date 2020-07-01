@@ -136,7 +136,7 @@ export function createEvents(eventFormDetails) {
         showMessageWithTimeout(
           "success",
           false,
-          "Your Request has submitted successfully",
+          "Your Post has submitted successfully",
           2500
         )
       );

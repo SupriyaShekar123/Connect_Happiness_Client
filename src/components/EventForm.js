@@ -39,7 +39,7 @@ export default function EventForm() {
     history.push("/ourServices");
   }
   const today = new Date().toISOString().split(":");
-  console.log("DATE TODAU ", today);
+  // console.log("DATE TODAU ", today);
   return (
     <div className='div_main_event_form'>
       <div className='div_inner_event_form'>
