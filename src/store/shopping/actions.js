@@ -1,4 +1,5 @@
 import axios from "axios";
+import { selectToken } from "../user/selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -31,11 +32,17 @@ export function shopping(lists) {
   }
   return async (dispatch, getState) => {
     dispatch(appLoading());
+    const token = selectToken(getState());
 
     try {
       const response = await axios.post(
         "http://localhost:4000/shopping",
-        lists
+        lists,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       //console.log("Auction  FORM  Response ", response.data);
