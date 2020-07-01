@@ -4,7 +4,7 @@ import { clearMessage } from "../store/appState/actions";
 
 export default function Home() {
   const dispatch = useDispatch();
-  // dispatch(clearMessage());
+  //dispatch(clearMessage());
   return (
     <div className='div_homepage_main'>
       <div className='div_homepage'>

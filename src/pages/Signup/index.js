@@ -23,10 +23,7 @@ export default function SignUp() {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
-  //const [roles, setRoles] = useState("");
-  // const [seniorCitizens, setSeniorcitizens] = useState("");
-  // const [publics, setPublic] = useState("");
-  // const [volunteer, setVolunteer] = useState("");
+
   const [isChecked, setIsChecked] = useState({
     seniorCitizen: false,
     general: false,

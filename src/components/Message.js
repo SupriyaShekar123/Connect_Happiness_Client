@@ -8,8 +8,7 @@ import { selectShoppingDetails } from "../store/shoppingDetails/selectors";
 
 export default function Message() {
   const history = useHistory();
-  //   const { id } = useParams();
-  //   console.log("Params", id);
+
   const [uemailMsg, setEmail] = useState("");
   const dispatch = useDispatch();
   const shoppingDetails = useSelector(selectShoppingDetails);
@@ -47,8 +46,6 @@ export default function Message() {
 
     let update;
     if (userId.length > 0) {
-      //   console.log("user id is :", userId[0].user.id);
-
       update = {
         volunteerId: volUserId.id,
         status: "close",

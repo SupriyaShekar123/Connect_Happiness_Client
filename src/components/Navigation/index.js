@@ -7,13 +7,11 @@ import { selectToken, selectUser } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
-//import { selectUser, selectToken } from "./store/user/selectors";
-// import { selectUser, selectToken } from "./store/user/selectors";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
   const seniorCitizen = useSelector(selectUser);
-  // console.log("seniorCitizen", seniorCitizen.roles);
+
   const history = useHistory();
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
@@ -62,7 +60,6 @@ export default function Navigation() {
           )}
 
           {loginLogoutControls}
-          {/* <NavbarItem path='/shopping' linkText='Shopping' /> */}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

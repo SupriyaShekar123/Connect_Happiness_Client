@@ -21,7 +21,7 @@ export default function OurServices() {
             <Link to={`/events/${events.id}`}>
               <div className='event_title'>{events.title}</div>
               <div className='div_ourservice_image'>
-                <img src={events.imageUrl} />
+                <img src={events.imageUrl} alt='event by people' />
               </div>
             </Link>
           </div>

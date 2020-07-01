@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import {
@@ -7,7 +7,7 @@ import {
 } from "../store/shoppingDetails/actions";
 import { selectShoppingDetails } from "../store/shoppingDetails/selectors";
 import { selectUser } from "../store/user/selectors";
-import EventsDetails from "./EventsDetails";
+//import EventsDetails from "./EventsDetails";
 
 export default function ShoppingLisData() {
   //const [message, setMessage] = useState(false);
