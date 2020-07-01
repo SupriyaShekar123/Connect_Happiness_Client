@@ -39,6 +39,12 @@ export default (state = initialState, action) => {
         details: [action.payload],
       };
     }
+    case "CONFIRM_MAIL": {
+      return {
+        ...state,
+        confirmMail: action.payload,
+      };
+    }
     default:
       return state;
   }

@@ -1,9 +1,16 @@
 import axios from "axios";
+import {
+  appLoading,
+  appDoneLoading,
+  showMessageWithTimeout,
+  setMessage,
+  clearMessage,
+} from "../appState/actions";
 
 export async function getShoppingDetails(dispatch, getstate) {
   dispatch({ type: "SHOPPINGDETAILS_LOADING" });
   try {
-    const response = await axios.get("http://localhost:4000/shopping"); //http://localhost:4000/stream`
+    const response = await axios.get("http://localhost:4000/shopping");
 
     console.log("THE RESPONSE ", response.data);
     dispatch({ type: "SHOPPINGDETAILS_LOADED", payload: response.data });
@@ -14,9 +21,16 @@ export async function getShoppingDetails(dispatch, getstate) {
 }
 
 export function shopping(lists) {
-  console.log(" ShoppingLists ", lists);
+  // console.log(" ShoppingLists ", lists);
+  const { category, list, userId, requiredBy } = lists;
+
+  if (!category || !list || !userId || !requiredBy) {
+    return async (dispatch, getState) => {
+      dispatch(setMessage("danger", true, "Fill the mandatoary fields"));
+    };
+  }
   return async (dispatch, getState) => {
-    //const token = selectToken(getState());
+    dispatch(appLoading());
 
     try {
       const response = await axios.post(
@@ -26,22 +40,28 @@ export function shopping(lists) {
 
       //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "LISTS_SUCCESS", payload: response.data });
-      console.log("shopping id : ", response.data.id);
+
       const shoppingID = { spid: response.data.id };
       dispatch(sendMail(shoppingID));
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
+
+      dispatch(
+        showMessageWithTimeout(
+          "success",
+          false,
+          "Your Request has submitted successfully",
+          20500
+        )
+      );
+
+      dispatch(appDoneLoading());
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data));
+        dispatch(setMessage("danger", true, error.response.data));
       } else {
         console.log("The error is ", error.message);
-        //dispatch(setMessage("danger", true, error.message));
+        dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }

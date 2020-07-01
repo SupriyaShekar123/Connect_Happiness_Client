@@ -1,28 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import {
   getShoppingDetails,
   updateShopping,
 } from "../store/shoppingDetails/actions";
 import { selectShoppingDetails } from "../store/shoppingDetails/selectors";
 import { selectUser } from "../store/user/selectors";
+import EventsDetails from "./EventsDetails";
 
 export default function ShoppingLisData() {
+  //const [message, setMessage] = useState(false);
   const { id } = useParams();
-  // console.log("Params", id);
+  console.log("Params", id);
   const shoppingDetails = useSelector(selectShoppingDetails);
-  console.log("Shopping DETAILS", shoppingDetails);
+  console.log("Shopping Details...", shoppingDetails);
   const userId = useSelector(selectUser);
-  // console.log("USER DATA :", userId);
 
-  const details = shoppingDetails.map((shopDetials) => {
-    return shopDetials.status;
-  });
-
-  if (details[0] === "close") {
-    console.log("DETAILS OF SHOPPING :", details);
-  }
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,33 +34,85 @@ export default function ShoppingLisData() {
   }
 
   return (
-    <div>
-      {shoppingDetails.map((details) => {
-        return (
-          <div>
-            <p>{details.category}</p>
-            <p>{details.list}</p>
+    <div className='div_shoppingDetails'>
+      <div className='div_border'>
+        {shoppingDetails.map((details) => {
+          return (
+            <div className='div_shopping_details_values' key={details.id}>
+              <div className='div_left'>
+                <p className='p_shopping_details_values_left'>
+                  <b>RequestedBy</b>
+                </p>
+              </div>
+              <div className='div_right'>
+                <p>: {details.user.name}</p>
+              </div>
+              <div className='div_left'>
+                <p>
+                  <b>Request Type</b>
+                </p>
+              </div>
+              <div className='div_right'>
+                <p>: {details.category}</p>
+              </div>
 
-            <p>Name:{details.user.name}</p>
-            <p>House_num:{details.user.house_num}</p>
-            <p>Details:{details.user.street}</p>
-            <p>Postcode:{details.user.postcode}</p>
-            <p>City:{details.user.city}</p>
-            <p>Phone:{details.user.phone}</p>
-            <p>Email:{details.user.email}</p>
-          </div>
-        );
-      })}
-      {details[0] != "close" && userId.roles != "seniorCitizen" ? (
-        <button onClick={updateData}>connect</button>
-      ) : (
-        ""
-      )}
+              <div className='div_left'>
+                <p>
+                  <b>Request Details</b>
+                </p>
+              </div>
+              <div className='div_right'>
+                <p>: {details.list}</p>
+              </div>
 
-      {/* {details[0] != "close" && <button onClick={updateData}>connect</button>}
-      {userId.roles != "seniorCitizen" && (
-        <button onClick={updateData}>connect</button>
-      )} */}
+              <div className='div_left'>
+                <p className='p_shopping_details_values_left'>
+                  <b>Address</b>
+                </p>
+              </div>
+              <div className='div_right'>
+                <p>
+                  : {details.user.house_num} , {details.user.street} ,
+                  {details.user.postcode},{details.user.city}
+                </p>
+              </div>
+
+              <div className='div_left'>
+                <p>
+                  <b>Phone</b>
+                </p>
+              </div>
+              <div className='div_right'>
+                <p>: {details.user.phone}</p>
+              </div>
+              <div className='div_left'>
+                <p>
+                  <b>Email</b>
+                </p>
+              </div>
+              <div className='div_right'>
+                <p>: {details.user.email}</p>
+              </div>
+            </div>
+          );
+        })}
+        <div>
+          {shoppingDetails.map((details) => {
+            if (details.status != "close") {
+              return (
+                <div>
+                  <Link to='/message'>
+                    <button className='btn_shopping_detils_connect'>
+                      {/* // onClick={updateData}> */}
+                      Send Message
+                    </button>
+                  </Link>
+                </div>
+              );
+            }
+          })}
+        </div>
+      </div>
     </div>
   );
 }
