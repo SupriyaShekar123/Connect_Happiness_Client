@@ -9,7 +9,9 @@ import { clearMessage } from "../store/appState/actions";
 export default function EventForm() {
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(
+    "https://www.dominicavibes.dm/wp-content/uploads/2018/09/New-event-star.jpg"
+  );
   const [date, setDate] = useState([]);
   const [location, setLocation] = useState("");
   const userId = useSelector(selectUser);
