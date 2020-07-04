@@ -1,4 +1,5 @@
 import axios from "axios";
+import { selectToken } from "../user/selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -6,18 +7,6 @@ import {
   setMessage,
   clearMessage,
 } from "../appState/actions";
-
-// export async function getEventsDetails(dispatch, getstate) {
-//   dispatch({ type: "EVENTSDETAILS_LOADING" });
-//   try {
-//     const response = await axios.get("http://localhost:4000/events");
-//     console.log("THE RESPONSE ", response.data);
-//     dispatch({ type: "EVENTSDETAILS_LOADED", payload: response.data });
-//   } catch (error) {
-//     // console.log(" ERROR MSG : ", error.message)
-//     dispatch({ type: "EVENTSDETAILS_ERROR" });
-//   }
-// }
 
 export const getEventsDetails = (id) => {
   //console.log("email :", email, " Password :", password);
@@ -36,12 +25,18 @@ export const getEventsDetails = (id) => {
 export function participents(datas) {
   //console.log(" participents ", datas);
   return async (dispatch, getState) => {
-    //const token = selectToken(getState());
+    const token = selectToken(getState());
+    console.log("Token", token);
 
     try {
       const response = await axios.post(
         "http://localhost:4000/participents",
-        datas
+        datas,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       //console.log("Auction  FORM  Response ", response.data);
@@ -54,19 +49,12 @@ export function participents(datas) {
           2500
         )
       );
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data));
       } else {
         console.log("The error is ", error.message);
-        //dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }
@@ -91,19 +79,12 @@ export function removeUser(id) {
           2500
         )
       );
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data));
       } else {
         console.log("The error is ", error.message);
-        //dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }
@@ -121,15 +102,19 @@ export function createEvents(eventFormDetails) {
     };
   }
   return async (dispatch, getState) => {
-    //const token = selectToken(getState());
+    const token = selectToken(getState());
 
     try {
       const response = await axios.post(
         "http://localhost:4000/events",
-        eventFormDetails
+        eventFormDetails,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
-      //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "EVENTS_CREATE_SUCCESS", payload: response.data });
 
       dispatch(
@@ -140,20 +125,12 @@ export function createEvents(eventFormDetails) {
           2500
         )
       );
-
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data));
       } else {
         console.log("The error is ", error.message);
-        //dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }

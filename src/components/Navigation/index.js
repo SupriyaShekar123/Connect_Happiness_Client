@@ -7,13 +7,11 @@ import { selectToken, selectUser } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
-//import { selectUser, selectToken } from "./store/user/selectors";
-// import { selectUser, selectToken } from "./store/user/selectors";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
   const seniorCitizen = useSelector(selectUser);
-  // console.log("seniorCitizen", seniorCitizen.roles);
+
   const history = useHistory();
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
@@ -28,9 +26,7 @@ export default function Navigation() {
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem exact path='/' linkText='Home' />
           <NavbarItem exact path='/ourservices' linkText='Events' />
-          {token === null ||
-          seniorCitizen.roles === "general" ||
-          seniorCitizen.roles === "volunteer" ? (
+          {token === null || seniorCitizen.roles !== "seniorCitizen" ? (
             history.push("/login")
           ) : (
             <NavbarItem exact path='/shopping' linkText='Request' />
@@ -46,23 +42,18 @@ export default function Navigation() {
               linkText='Open Requests'
             />
           )}
-          {token === null ||
-          seniorCitizen.roles === "general" ||
-          seniorCitizen.roles === "volunteer" ? (
+          {token === null || seniorCitizen.roles !== "seniorCitizen" ? (
             history.push("./login")
           ) : (
             <NavbarItem exact path='/myrequest' linkText='My Requests' />
           )}
-          {token === null ||
-          seniorCitizen.roles === "general" ||
-          seniorCitizen.roles === "volunteer" ? (
+          {token === null || seniorCitizen.roles !== "seniorCitizen" ? (
             history.push("/login")
           ) : (
             <NavbarItem exact path='/eventform' linkText='Start an Event' />
           )}
 
           {loginLogoutControls}
-          {/* <NavbarItem path='/shopping' linkText='Shopping' /> */}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

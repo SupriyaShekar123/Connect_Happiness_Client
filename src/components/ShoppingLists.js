@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { shopping } from "../store/shopping/actions";
-// import Form from "react-bootstrap/Form";
-// import Container from "react-bootstrap/Container";
-// import Col from "react-bootstrap/Col";
-// import Button from "react-bootstrap/Button";
+
 import { clearMessage } from "../store/appState/actions";
 import { selectUser } from "../store/user/selectors";
 import { selectShoppingListId } from "../store/shopping/selectors";
 import { selectMessage } from "../store/appState/selectors";
 
 export default function ShoppingLists() {
-  const [category, setCategories] = useState("groceries");
+  const [category, setCategories] = useState("");
   const [list, setList] = useState("");
   const [requiredBy, setrequiredBy] = useState(0);
   const user = useSelector(selectUser);
@@ -22,8 +19,6 @@ export default function ShoppingLists() {
   const appSuccessMessage = useSelector(selectMessage);
 
   // console.log("THE VALUE SUCCESS MESSAGE : ", appSuccessMessage);
-
-  // const id = shoppingListsId.id;
 
   const dispatch = useDispatch();
 
@@ -42,7 +37,7 @@ export default function ShoppingLists() {
   }
 
   // // this condition is to navigate to shopping details on successfully submission
-  // console.log("SUCESS< ", appSuccessMessage, "");
+
   if (appSuccessMessage != null && appSuccessMessage.dismissable === false) {
     history.push("/myrequest");
     console.log("THIS CODE IS EXECUTED ");
@@ -55,7 +50,7 @@ export default function ShoppingLists() {
           <div className='div_shooping_req_heading'>
             Provide Your Request information
           </div>
-          {/* <form onSubmit={submit}> */}
+
           <div className='div_req_left'>
             <label>Request Type</label>
           </div>
@@ -63,6 +58,7 @@ export default function ShoppingLists() {
             <input
               className='req_form'
               type='text'
+              placeholder='Ex:shopping help,pet care '
               value={category}
               onChange={(event) => setCategories(event.target.value)}
             />
@@ -74,12 +70,13 @@ export default function ShoppingLists() {
             <textarea
               className='req_form'
               type='text'
+              placeholder='Leave a small message on the help you need.'
               value={list}
               onChange={(event) => setList(event.target.value)}
             />
           </div>
           <div className='div_req_left'>
-            <label>Date</label>
+            <label>Required By</label>
           </div>
           <div className='div_req_right'>
             <input

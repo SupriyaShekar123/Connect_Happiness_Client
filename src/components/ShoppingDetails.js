@@ -12,8 +12,6 @@ export default function ShoppingDetails() {
   const seniorCitizens = useSelector(selectUser);
   // console.log("seniorCitizen", seniorCitizens.roles);
   const roles = seniorCitizens.roles;
-  // console.log("roles", roles);
-  //const history = useHistory();
 
   useEffect(() => {
     dispatch(getShoppingDetails);
@@ -48,8 +46,6 @@ export default function ShoppingDetails() {
           <th>Request Details</th>
           <th>Request End date</th>
           <th>Status</th>
-
-          {/* <th>Details</th> */}
         </tr>
         {shoppinglists.map((lists) => {
           return (

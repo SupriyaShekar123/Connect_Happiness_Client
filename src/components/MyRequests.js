@@ -10,14 +10,6 @@ export default function ShoppingDetails() {
   const dispatch = useDispatch();
   const seniorCitizens = useSelector(selectUser);
   const id = seniorCitizens.id;
-  // //   console.log(
-  //     "seniorCitizen",
-  //     seniorCitizens.roles,
-  //     "useirn id ",
-  //     seniorCitizens.id
-  //   );
-  //   const roles = seniorCitizens.roles;
-  //   console.log("roles", roles);
 
   useEffect(() => {
     dispatch(getUserRequestDetails(id));
@@ -59,8 +51,6 @@ export default function ShoppingDetails() {
                     year: "numeric",
                     month: "long",
                     day: "2-digit",
-                    // hour: "numeric",
-                    // minute: "numeric",
                   }).format(Date.parse(shopping.requiredBy))}{" "}
                 </td>
                 <td>{shopping.status}</td>

@@ -721,3 +721,17 @@ textarea {
 .App {
     padding: 30px;
 }
+
+
+/* Sing up page */
+
+.div_signup_checkbox {
+    align-items: left;
+    /* border: 3px solid red; */
+    display: flex;
+    padding: 3px;
+}
+
+.div_signup_checkbox div {
+    padding-right: 13px;
+}

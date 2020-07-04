@@ -43,12 +43,7 @@ export function updateShopping(id, update, emailDetials) {
           2500
         )
       );
-
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
         //dispatch(setMessage("danger", true, error.response.data));
@@ -56,7 +51,6 @@ export function updateShopping(id, update, emailDetials) {
         console.log("The error is ", error.message);
         //dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }
@@ -86,21 +80,13 @@ export function confirmMail(emailDetials) {
         emailDetials
       );
 
-      //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "CONFIRM_MAIL", payload: response.data });
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data));
       } else {
         console.log("The error is ", error.message);
-        //dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }

@@ -9,12 +9,11 @@ import { selectUser } from "../store/user/selectors";
 
 export default function EventsDetails() {
   const userId = useSelector(selectUser);
-  // console.log("userId", userId);
+
   const token = useSelector(selectToken);
-  // console.log("token", token);
+
   const { id } = useParams();
   const eventDetails = useSelector(selectEventsDetails);
-  // console.log("eventsDetails", eventDetails);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -28,7 +27,7 @@ export default function EventsDetails() {
       eventId: id,
       userId: userId.id,
     };
-    // console.log("Please Sign up or login to join the event");
+
     if (token === null) {
       //alert("Please Signup if new User or Login if existing user to join.");
       history.push("/login");
@@ -38,13 +37,9 @@ export default function EventsDetails() {
     }
   }
 
-  // const participentsId = eventDetails.map((participent) => {
-  //   return participent.participents.id;
-  // });
-  // console.log("Ids", participentsId);
   function remove() {
     console.log("removed");
-    const t = eventDetails.map((prticepents) => {
+    const removed = eventDetails.map((prticepents) => {
       const findParticepents = prticepents.participents.find((event) => {
         if (event.userId === userId.id) {
           return event.id;
@@ -65,7 +60,11 @@ export default function EventsDetails() {
           {eventDetails.map((details) => {
             return (
               <div className='div_events_image1' key={details.id}>
-                <img className='image_events' src={details.imageUrl} />
+                <img
+                  className='image_events'
+                  src={details.imageUrl}
+                  alt='activites'
+                />
               </div>
             );
           })}
