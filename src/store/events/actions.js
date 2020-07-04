@@ -1,9 +1,10 @@
+import { apiUrl } from "../../config/constants";
 import axios from "axios";
 
 export async function getEventsLists(dispatch, getstate) {
   dispatch({ type: "EVENTS_LOADING" });
   try {
-    const response = await axios.get("http://localhost:4000/events"); //http://localhost:4000/stream`
+    const response = await axios.get(`${apiUrl}/events`); //http://localhost:4000/stream`
 
     console.log("THE RESPONSE ", response.data);
     dispatch({ type: "EVENTS_LOADED", payload: response.data });

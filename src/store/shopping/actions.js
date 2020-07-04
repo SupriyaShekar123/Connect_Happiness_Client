@@ -1,3 +1,4 @@
+import { apiUrl } from "../../config/constants";
 import axios from "axios";
 import { selectToken } from "../user/selectors";
 import {
@@ -11,7 +12,7 @@ import {
 export async function getShoppingDetails(dispatch, getstate) {
   dispatch({ type: "SHOPPINGDETAILS_LOADING" });
   try {
-    const response = await axios.get("http://localhost:4000/shopping");
+    const response = await axios.get(`${apiUrl}/shopping`);
 
     console.log("THE RESPONSE ", response.data);
     dispatch({ type: "SHOPPINGDETAILS_LOADED", payload: response.data });
@@ -35,15 +36,11 @@ export function shopping(lists) {
     const token = selectToken(getState());
 
     try {
-      const response = await axios.post(
-        "http://localhost:4000/shopping",
-        lists,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post(`${apiUrl}/shopping`, lists, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "LISTS_SUCCESS", payload: response.data });
@@ -77,7 +74,7 @@ export function sendMail(id) {
   console.log(" SendMail ", id);
   return async (dispatch, getState) => {
     try {
-      const response = await axios.post("http://localhost:4000/send", id);
+      const response = await axios.post(`${apiUrl}/send`, id);
 
       //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "SENT_MAIL", payload: response.data });

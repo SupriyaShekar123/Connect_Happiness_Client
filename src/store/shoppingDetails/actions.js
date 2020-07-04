@@ -1,3 +1,4 @@
+import { apiUrl } from "../../config/constants";
 import axios from "axios";
 import {
   appLoading,
@@ -12,7 +13,7 @@ export const getShoppingDetails = (id) => {
   return async (dispatch, getState) => {
     dispatch({ type: "SHOPPING_DETAIL_LOADING" });
     try {
-      const response = await axios.get(`http://localhost:4000/shopping/${id}`);
+      const response = await axios.get(`${apiUrl}/shopping/${id}`);
       console.log("THE RESPONSE Shopping DETAILS", response.data);
       dispatch({ type: "SHOPPING_DETAIL_LOADED", payload: response.data });
     } catch (error) {
@@ -27,10 +28,7 @@ export function updateShopping(id, update, emailDetials) {
     //const token = selectToken(getState());
 
     try {
-      const response = await axios.patch(
-        `http://localhost:4000/shopping/${id}`,
-        update
-      );
+      const response = await axios.patch(`${apiUrl}/shopping/${id}`, update);
 
       console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "UPDATE_SHOPPING", payload: response.data });
@@ -60,7 +58,7 @@ export const getUserRequestDetails = (id) => {
   return async (dispatch, getState) => {
     dispatch({ type: "SHOPPING_DETAIL_LOADING" });
     try {
-      const response = await axios.get(`http://localhost:4000/user/${id}`);
+      const response = await axios.get(`${apiUrl}/user/${id}`);
       console.log("THE RESPONSE USER REQUEST DETAILS", response.data);
       dispatch({ type: "SHOPPING_DETAIL_LOADED", payload: response.data });
     } catch (error) {
@@ -75,10 +73,7 @@ export function confirmMail(emailDetials) {
     //const token = selectToken(getState());
 
     try {
-      const response = await axios.post(
-        "http://localhost:4000/confirm",
-        emailDetials
-      );
+      const response = await axios.post(`${apiUrl}/confirm`, emailDetials);
 
       dispatch({ type: "CONFIRM_MAIL", payload: response.data });
     } catch (error) {

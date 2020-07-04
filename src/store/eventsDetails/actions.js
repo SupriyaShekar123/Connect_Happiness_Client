@@ -1,3 +1,4 @@
+import { apiUrl } from "../../config/constants";
 import axios from "axios";
 import { selectToken } from "../user/selectors";
 import {
@@ -13,7 +14,7 @@ export const getEventsDetails = (id) => {
   return async (dispatch, getState) => {
     dispatch({ type: "EVENTSDETAILS_LOADING" });
     try {
-      const response = await axios.get(`http://localhost:4000/events/${id}`);
+      const response = await axios.get(`${apiUrl}/events/${id}`);
       console.log("THE RESPONSE  DETAILS", response.data);
       dispatch({ type: "EVENTSDETAILS_LOADED", payload: response.data });
     } catch (error) {
@@ -29,15 +30,11 @@ export function participents(datas) {
     console.log("Token", token);
 
     try {
-      const response = await axios.post(
-        "http://localhost:4000/participents",
-        datas,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post(`${apiUrl}/participents`, datas, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "PARTICIPENTS_SUCCESS", payload: response.data });
@@ -65,9 +62,7 @@ export function removeUser(id) {
     //const token = selectToken(getState());
 
     try {
-      const response = await axios.delete(
-        `http://localhost:4000/participents/${id}`
-      );
+      const response = await axios.delete(`${apiUrl}/participents/${id}`);
 
       console.log("Remove Response ", response.data);
       dispatch({ type: "REMOVE_USER", payload: response.data });
@@ -105,15 +100,11 @@ export function createEvents(eventFormDetails) {
     const token = selectToken(getState());
 
     try {
-      const response = await axios.post(
-        "http://localhost:4000/events",
-        eventFormDetails,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post(`${apiUrl}/events`, eventFormDetails, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       dispatch({ type: "EVENTS_CREATE_SUCCESS", payload: response.data });
 
