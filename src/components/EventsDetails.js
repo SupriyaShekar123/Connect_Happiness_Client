@@ -39,7 +39,7 @@ export default function EventsDetails() {
 
   function remove() {
     console.log("removed");
-    const t = eventDetails.map((prticepents) => {
+    const removed = eventDetails.map((prticepents) => {
       const findParticepents = prticepents.participents.find((event) => {
         if (event.userId === userId.id) {
           return event.id;
@@ -60,7 +60,11 @@ export default function EventsDetails() {
           {eventDetails.map((details) => {
             return (
               <div className='div_events_image1' key={details.id}>
-                <img className='image_events' src={details.imageUrl} />
+                <img
+                  className='image_events'
+                  src={details.imageUrl}
+                  alt='activites'
+                />
               </div>
             );
           })}

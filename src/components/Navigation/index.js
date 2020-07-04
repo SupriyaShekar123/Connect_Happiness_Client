@@ -26,9 +26,7 @@ export default function Navigation() {
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem exact path='/' linkText='Home' />
           <NavbarItem exact path='/ourservices' linkText='Events' />
-          {token === null ||
-          seniorCitizen.roles === "general" ||
-          seniorCitizen.roles === "volunteer" ? (
+          {token === null || seniorCitizen.roles !== "seniorCitizen" ? (
             history.push("/login")
           ) : (
             <NavbarItem exact path='/shopping' linkText='Request' />
@@ -44,16 +42,12 @@ export default function Navigation() {
               linkText='Open Requests'
             />
           )}
-          {token === null ||
-          seniorCitizen.roles === "general" ||
-          seniorCitizen.roles === "volunteer" ? (
+          {token === null || seniorCitizen.roles !== "seniorCitizen" ? (
             history.push("./login")
           ) : (
             <NavbarItem exact path='/myrequest' linkText='My Requests' />
           )}
-          {token === null ||
-          seniorCitizen.roles === "general" ||
-          seniorCitizen.roles === "volunteer" ? (
+          {token === null || seniorCitizen.roles !== "seniorCitizen" ? (
             history.push("/login")
           ) : (
             <NavbarItem exact path='/eventform' linkText='Start an Event' />

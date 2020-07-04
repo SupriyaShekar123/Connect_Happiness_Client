@@ -9,7 +9,7 @@ import { selectShoppingListId } from "../store/shopping/selectors";
 import { selectMessage } from "../store/appState/selectors";
 
 export default function ShoppingLists() {
-  const [category, setCategories] = useState("groceries");
+  const [category, setCategories] = useState("");
   const [list, setList] = useState("");
   const [requiredBy, setrequiredBy] = useState(0);
   const user = useSelector(selectUser);
@@ -58,6 +58,7 @@ export default function ShoppingLists() {
             <input
               className='req_form'
               type='text'
+              placeholder='Ex:shopping help,pet care '
               value={category}
               onChange={(event) => setCategories(event.target.value)}
             />
@@ -69,12 +70,13 @@ export default function ShoppingLists() {
             <textarea
               className='req_form'
               type='text'
+              placeholder='Leave a small message on the help you need.'
               value={list}
               onChange={(event) => setList(event.target.value)}
             />
           </div>
           <div className='div_req_left'>
-            <label>Date</label>
+            <label>Required By</label>
           </div>
           <div className='div_req_right'>
             <input

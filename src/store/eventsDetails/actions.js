@@ -49,19 +49,12 @@ export function participents(datas) {
           2500
         )
       );
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data));
       } else {
         console.log("The error is ", error.message);
-        //dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }
@@ -86,19 +79,12 @@ export function removeUser(id) {
           2500
         )
       );
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data));
       } else {
         console.log("The error is ", error.message);
-        //dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }
@@ -129,7 +115,6 @@ export function createEvents(eventFormDetails) {
         }
       );
 
-      //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "EVENTS_CREATE_SUCCESS", payload: response.data });
 
       dispatch(
@@ -140,20 +125,12 @@ export function createEvents(eventFormDetails) {
           2500
         )
       );
-
-      //dispatch(setMessage("success", false, null));
-      //dispatch({ type: "SUCESS_AUCTION", payload: response.data });
     } catch (error) {
-      // console.log("AUCTUION ERROR MESSAGE message", error.response.data);
-      // console.log("AUCTUION ERROR MESSAGE message", error.message);
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data));
       } else {
         console.log("The error is ", error.message);
-        //dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
     }
   };
 }

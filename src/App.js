@@ -1,12 +1,3 @@
-// import React from "react";
-// import { Switch, Route, NavLink } from "react-router-dom";
-
-// import "./App.css";
-// import "./components/Home";
-// import "./components/OurServices";
-// import Login from "./pages/Login";
-// import SignUp from "./pages/Signup";
-
 import React, { useEffect } from "react";
 import "./App.css";
 
@@ -42,20 +33,11 @@ function App() {
   const token = useSelector(selectToken);
   // console.log("token", token);
 
-  // const evtSource = new EventSource("http://localhost:4000/stream");
-  // evtSource.onmessage = function (e) {
-  //   console.log(e.data);
-  // };
   useEffect(() => {
     dispatch(getUserWithStoredToken());
   }, [dispatch]);
 
   const history = useHistory();
-
-  // const shopping = seniorCitizen.map((sc) => {
-  //   return sc.roles;
-  // });
-  // console.log("sc", shopping);
 
   return (
     <div className='App'>
@@ -76,12 +58,7 @@ function App() {
         <Route exact path='/ourservices' component={OurServices} />
         <Route exact path='/events/:id' component={EventsDetails} />
         <Route exact path='/shopping' component={ShoppingLists} />
-        <Route
-          exact
-          path='/shoppingDetails'
-          exact
-          component={ShoppingDetails}
-        />
+        <Route exact path='/shoppingDetails' component={ShoppingDetails} />
         <Route exact path='/shoppingDetails/:id' component={ShoppingLisData} />
         <Route exact path='/eventform' component={EventForm} />
         <Route exact path='/message' component={Message} />

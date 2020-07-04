@@ -7,6 +7,7 @@ import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
+import { setMessage } from "../../store/appState/actions";
 
 export default function SignUp() {
   let roles = [
@@ -23,7 +24,6 @@ export default function SignUp() {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [postcode, setPostcode] = useState("");
-
   const [isChecked, setIsChecked] = useState({
     seniorCitizen: false,
     general: false,
@@ -35,26 +35,37 @@ export default function SignUp() {
   const token = useSelector(selectToken);
   const history = useHistory();
 
+  // Date manupulation for to set the max date for date picker
+  const today = new Date();
+  const getDate =
+    (today.getFullYear() - 13).toString() +
+    "-" +
+    today.getMonth().toString() +
+    "-" +
+    today.getDay().toString();
+  const setDate = new Date(getDate).toISOString().split("T");
+
+  // not logged in then push it to login screen
   useEffect(() => {
     if (token !== null) {
       history.push("/");
     }
   }, [token, history]);
 
+  // to handle the check box
   const handleSingleCheck = (e) => {
     setIsChecked({ ...isChecked, [e.target.id]: e.target.checked });
     // console.log("check box ", isChecked, "     testing");
   };
 
-  console.log("check box ", isChecked);
-
+  // submit form
   function submitForm(event) {
     event.preventDefault();
 
+    //  to get the role names in a single string
     let roleValues = "";
     const roledata = Object.keys(isChecked).map((keyData) => {
       if (isChecked[keyData] === true) {
-        // console.log("Condition reached ");
         if (roleValues.length > 1) {
           roleValues = roleValues + "," + keyData;
         } else {
@@ -64,6 +75,7 @@ export default function SignUp() {
       return roleValues;
     });
 
+    // data for the post request
     const singupData = {
       name,
       email,
@@ -77,26 +89,47 @@ export default function SignUp() {
       roles: roleValues,
     };
 
-    console.log("SINGN UP DATA ", singupData);
-    dispatch(signUp(singupData));
-
-    setEmail("");
-    setPassword("");
-    setName("");
-    setCity("");
-    setDob();
-    setPhone();
-    setPostcode("");
-    setHouse_num();
-    setStreet("");
+    // validation checks
+    if (
+      (!name ||
+        !email ||
+        !password ||
+        dob === undefined ||
+        !street ||
+        !city ||
+        !house_num ||
+        !phone ||
+        !postcode,
+      !roleValues)
+    ) {
+      console.log("SINGN UP DATA ", singupData);
+      dispatch(setMessage("danger", true, "Fill the mandatoary fields"));
+    } else if (
+      // validation check for dates
+      parseInt(dob.split("-")[0]) < today.getFullYear() - 110 ||
+      parseInt(dob.split("-")[0]) > today.getFullYear() - 13
+    ) {
+      const message =
+        "Invalid date should be between " +
+        (today.getFullYear() - 110).toString() +
+        " and  " +
+        (today.getFullYear() - 13).toString();
+      dispatch(setMessage("danger", true, message));
+      setEmail("");
+    } else {
+      console.log("SINGN UP DATA ", singupData);
+      dispatch(signUp(singupData));
+      setEmail("");
+      setPassword("");
+      setName("");
+      setCity("");
+      setDob();
+      setPhone();
+      setPostcode("");
+      setHouse_num();
+      setStreet("");
+    }
   }
-
-  const rolesData = formData.map((test) => {
-    //console.log("What are roles", rolesData);
-    return test.name;
-  });
-
-  // console.log("What are roles", rolesData);
 
   return (
     <Container>
@@ -141,6 +174,7 @@ export default function SignUp() {
             value={dob}
             onChange={(event) => setDob(event.target.value)}
             type='date'
+            max={setDate[0]}
             //placeholder='Password'
             required
           />
@@ -156,62 +190,80 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group controlId='formBasicCheckbox'>
-          {formData.map((test) => {
-            console.log(" test name : ", test.name);
+          <div className='div_signup_checkbox'>
+            {formData.map((test) => {
+              console.log(" test name : ", test.name);
 
-            // if condition to validate the checkbox, user can only singin as senior citizen or (volunteer or general)
-            if (
-              isChecked.seniorCitizen === true &&
-              test.name.toUpperCase() === "SENIORCITIZEN"
-            ) {
-              console.log(" enable  sernior citize ");
-              return (
-                <Form.Check
-                  type='checkbox'
-                  id={test.name}
-                  label={test.name}
-                  onChange={handleSingleCheck}
-                />
-              );
-            } else if (
-              (isChecked.general === true || isChecked.volunteer === true) &&
-              (test.name.toUpperCase() === "GENERAL" ||
-                test.name.toUpperCase() === "VOLUNTEER")
-            ) {
-              console.log("disable senior citizen");
-              return (
-                <Form.Check
-                  type='checkbox'
-                  id={test.name}
-                  label={test.name}
-                  onChange={handleSingleCheck}
-                />
-              );
-            } else if (
-              isChecked.seniorCitizen === false &&
-              isChecked.general === false &&
-              isChecked.volunteer === false
-            ) {
-              return (
-                <Form.Check
-                  type='checkbox'
-                  id={test.name}
-                  label={test.name}
-                  onChange={handleSingleCheck}
-                />
-              );
-            } else {
-              return (
-                <Form.Check
-                  disabled
-                  type='checkbox'
-                  id={test.name}
-                  label={test.name}
-                  onChange={handleSingleCheck}
-                />
-              );
-            }
-          })}
+              // if condition to validate the checkbox, user can only singin as senior citizen or (volunteer or general)
+              if (
+                isChecked.seniorCitizen === true &&
+                test.name.toUpperCase() === "SENIORCITIZEN"
+              ) {
+                // console.log(" enable  sernior citize ");
+                return (
+                  <div>
+                    <Form.Check
+                      type='checkbox'
+                      id={test.name}
+                      label={
+                        test.name.charAt(0).toUpperCase() + test.name.slice(1)
+                      }
+                      onChange={handleSingleCheck}
+                    />
+                  </div>
+                );
+              } else if (
+                (isChecked.general === true || isChecked.volunteer === true) &&
+                (test.name.toUpperCase() === "GENERAL" ||
+                  test.name.toUpperCase() === "VOLUNTEER")
+              ) {
+                // console.log("disable senior citizen");
+                return (
+                  <div>
+                    <Form.Check
+                      type='checkbox'
+                      id={test.name}
+                      label={
+                        test.name.charAt(0).toUpperCase() + test.name.slice(1)
+                      }
+                      onChange={handleSingleCheck}
+                    />
+                  </div>
+                );
+              } else if (
+                isChecked.seniorCitizen === false &&
+                isChecked.general === false &&
+                isChecked.volunteer === false
+              ) {
+                return (
+                  <div>
+                    <Form.Check
+                      type='checkbox'
+                      id={test.name}
+                      label={
+                        test.name.charAt(0).toUpperCase() + test.name.slice(1)
+                      }
+                      onChange={handleSingleCheck}
+                    />
+                  </div>
+                );
+              } else {
+                return (
+                  <div>
+                    <Form.Check
+                      disabled
+                      type='checkbox'
+                      id={test.name}
+                      label={
+                        test.name.charAt(0).toUpperCase() + test.name.slice(1)
+                      }
+                      onChange={handleSingleCheck}
+                    />
+                  </div>
+                );
+              }
+            })}
+          </div>
         </Form.Group>
 
         <Form.Row>
