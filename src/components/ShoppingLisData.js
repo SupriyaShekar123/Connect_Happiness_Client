@@ -7,6 +7,7 @@ import {
 } from "../store/shoppingDetails/actions";
 import { selectShoppingDetails } from "../store/shoppingDetails/selectors";
 import { selectUser } from "../store/user/selectors";
+import { clearMessage } from "../store/appState/actions";
 //import EventsDetails from "./EventsDetails";
 
 export default function ShoppingLisData() {
@@ -24,6 +25,7 @@ export default function ShoppingLisData() {
   }, [dispatch, id]);
 
   function updateData() {
+    dispatch(clearMessage());
     console.log("closed");
     const update = {
       volunteerId: userId.id,
@@ -98,7 +100,7 @@ export default function ShoppingLisData() {
         })}
         <div>
           {shoppingDetails.map((details) => {
-            if (details.status != "close") {
+            if (details.status !== "close") {
               return (
                 <div>
                   <Link to='/message'>

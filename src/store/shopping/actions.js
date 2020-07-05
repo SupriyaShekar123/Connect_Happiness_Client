@@ -22,7 +22,7 @@ export async function getShoppingDetails(dispatch, getstate) {
   }
 }
 
-export function shopping(lists) {
+export function shopping(lists, history) {
   // console.log(" ShoppingLists ", lists);
   const { category, list, userId, requiredBy } = lists;
 
@@ -32,7 +32,7 @@ export function shopping(lists) {
     };
   }
   return async (dispatch, getState) => {
-    dispatch(appLoading());
+    //dispatch(appLoading());
     const token = selectToken(getState());
 
     try {
@@ -42,7 +42,6 @@ export function shopping(lists) {
         },
       });
 
-      //console.log("Auction  FORM  Response ", response.data);
       dispatch({ type: "LISTS_SUCCESS", payload: response.data });
 
       const shoppingID = { spid: response.data.id };
@@ -53,11 +52,11 @@ export function shopping(lists) {
           "success",
           false,
           "Your Request has submitted successfully",
-          20500
+          2500
         )
       );
 
-      dispatch(appDoneLoading());
+      //dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);

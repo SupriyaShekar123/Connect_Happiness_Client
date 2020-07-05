@@ -3,6 +3,7 @@ import { selectShoppingDetails } from "../store/shoppingDetails/selectors";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../store/user/selectors";
+import { clearMessage, setMessage } from "../store/appState/actions";
 
 export default function ShoppingDetails() {
   const shoppinglists = useSelector(selectShoppingDetails);
@@ -13,6 +14,7 @@ export default function ShoppingDetails() {
 
   useEffect(() => {
     dispatch(getUserRequestDetails(id));
+    dispatch(clearMessage());
   }, [dispatch, id]);
 
   if (!shoppinglists) {

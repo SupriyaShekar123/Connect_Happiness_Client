@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getEventsLists } from "../store/events/actions";
 import { selectEventsLists } from "../store/events/selectors";
+import { clearMessage, setMessage } from "../store/appState/actions";
 
 export default function OurServices() {
   const eventLists = useSelector(selectEventsLists);
   const dispatch = useDispatch();
   // console.log("EventsList", eventLists);
-
+  //dispatch(clearMessage());
   useEffect(() => {
     dispatch(getEventsLists);
   }, [dispatch]);

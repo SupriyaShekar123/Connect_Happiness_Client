@@ -43,7 +43,7 @@ export function participents(datas) {
           "success",
           false,
           "You are added to the event successfully",
-          2500
+          3000
         )
       );
     } catch (error) {

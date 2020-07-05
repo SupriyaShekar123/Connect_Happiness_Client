@@ -1,6 +1,6 @@
 ### Connect Happiness ![alt text][logo.png]
 
-:exclamation: Click [HERE](https://book-app-portfolio.netlify.app/) to check out the deployed version :exclamation:
+:exclamation: Click [HERE]() to check out the deployed version :exclamation:
 
 ## INTRO
 
@@ -25,17 +25,20 @@ The goal of this project is to build a full-stack app using new technologies (se
 - practice learning new technology independently
 - apply what we learned in the bootcamp
 - showcase development approach of using wireframes and user stories
-- practice disciplined [git usage](#git-workflow)
+- practice disciplined git usage
 
 ## Technology used in building this site
 
-- React (https://github.com/NicoleKuong/let-GO-client/blob/master/src/App.js)
-- Redux
-- Express - REST API
-- Sequelize
-- React-Bootstrap
-- nodeMailer :star:
-- node cron :star:
+:eyes::point_down: **Click links to see samples in this project** :point_down::eyes:
+
+- [React](https://github.com/SupriyaShekar123/Connect_Happiness_Client/blob/development/src/App.js)
+- [Redux](https://github.com/SupriyaShekar123/Connect_Happiness_Client/tree/development/src/store)
+- [Express](https://github.com/SupriyaShekar123/Connect_Happiness_Server/blob/master/index.js)
+- [RESTAPI](https://github.com/SupriyaShekar123/Connect_Happiness_Server/tree/master/routers)
+- [Sequelize](https://github.com/SupriyaShekar123/Connect_Happiness_Server/tree/master/migrations)
+- [React-Bootstrap](https://github.com/SupriyaShekar123/Connect_Happiness_Client/blob/development/src/pages/Login/index.js)
+- [nodeMailer](https://github.com/SupriyaShekar123/Connect_Happiness_Server/blob/master/routers/nodeMailer.js):star:
+- [nodecron](https://github.com/SupriyaShekar123/Connect_Happiness_Server/blob/master/index.js) :star:
 
 :star: _New technology learned during this project_
 
@@ -70,3 +73,15 @@ https://github.com/SupriyaShekar123/Connect_Happiness_Client/projects/1?add_card
 ### `Link to data Module`
 
 https://app.lucidchart.com/documents/view/bdec9e0b-f218-4e7c-9c5b-b2987393e6a1/0_0
+
+## Git workflow
+
+In this project I try to use:
+
+- Good commit messages
+- Well named branches
+- Pull requests with summaries
+
+## Server-repo
+
+The server side of this project is an Express server connected to a Sequelize database. [Click here for more details](https://github.com/SupriyaShekar123/Connect_Happiness_Server)

@@ -6,6 +6,7 @@ import { selectEventsDetails } from "../store/eventsDetails/selectors";
 import { selectToken } from "../store/user/selectors";
 import { participents, removeUser } from "../store/eventsDetails/actions";
 import { selectUser } from "../store/user/selectors";
+import { clearMessage, setMessage } from "../store/appState/actions";
 
 export default function EventsDetails() {
   const userId = useSelector(selectUser);
@@ -23,6 +24,7 @@ export default function EventsDetails() {
   }, [dispatch, id]);
 
   function submit() {
+    dispatch(clearMessage());
     const datas = {
       eventId: id,
       userId: userId.id,

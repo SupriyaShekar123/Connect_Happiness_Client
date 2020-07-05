@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 .form {
-    width: 60%;
+    /* width: 60%;
     padding: 50px;
     margin-left: 400px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
+    box-sizing: border-box; */
 }
 
 
@@ -734,4 +734,125 @@ textarea {
 
 .div_signup_checkbox div {
     padding-right: 13px;
+}
+
+.signup_label {
+    text-align: left;
+}
+
+.div_signup_main {
+    /* border: 3px solid red; */
+    /* width: 60%; */
+    /* align-items: center; */
+    /* text-align: left; */
+    /* background-image: linear-gradient( rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)), url("../src/images/logo.png"); */
+    height: 100%;
+    /* ges Hoehe der Seite -> weitere Hoehenangaben werden relativ hierzu ausgewertet */
+    overflow: hidden;
+    /*  hide scrollbars */
+    /* opacity: 0.1; */
+}
+
+
+/* .div_signup_content {
+    background-color: blanchedalmond;
+    width: 60%;
+} */
+
+.div_signup_main button {
+    /* width: 80%; */
+    /* display: flex; */
+    align-items: center;
+    border: none;
+    /* padding: 8px 15px 8px 15px; */
+    background: #ff8500;
+    color: #fff;
+    box-shadow: 1px 1px 4px #dadada;
+    -moz-box-shadow: 1px 1px 4px #dadada;
+    -webkit-box-shadow: 1px 1px 4px #dadada;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 10px 15px 8px 15px;
+}
+
+.signup_btn {
+    /* display: flex; */
+    /* border: 3px solid red; */
+    /* align-items: center;
+    padding-left: 30%; */
+}
+
+.div_login_main {
+    align-items: center;
+    /* text-align: left; */
+}
+
+.heading_login {
+    text-align: center;
+}
+
+.logout_button button {
+    border: none;
+    /* padding: 8px 15px 8px 15px; */
+    background: #ff8500;
+    color: #fff;
+    box-shadow: 1px 1px 4px #dadada;
+    -moz-box-shadow: 1px 1px 4px #dadada;
+    -webkit-box-shadow: 1px 1px 4px #dadada;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 10px 15px 8px 15px;
+}
+
+.div_login_main button {
+    /* display: flex; */
+    align-items: center;
+    border: none;
+    /* padding: 8px 15px 8px 15px; */
+    background: #ff8500;
+    color: #fff;
+    box-shadow: 1px 1px 4px #dadada;
+    -moz-box-shadow: 1px 1px 4px #dadada;
+    -webkit-box-shadow: 1px 1px 4px #dadada;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 10px 15px 8px 15px;
+}
+
+.div_login_lables {
+    text-align: left;
+}
+
+.app-logo {
+    display: block;
+    height: 40px;
+    width: 100px;
+    /* background-image: url("../src/images/logo.png"); */
+}
+
+.connect_span {
+    color: #ff8500;
+    font-weight: 700;
+    background-color: white;
+    font-family: Impact, Charcoal, sans-serif;
+    padding: 2px;
+    font-size: 16px;
+}
+
+.happiness_span {
+    color: #ffffff;
+    background-color: #ff8500;
+    font-style: italic;
+    font-family: "Apple Chancery", cursive;
+    /* font-family: "Snell Roundhand", cursive; */
+    padding: 2px;
+    font-size: 15px;
+}
+
+.div_sapn_nav {
+    border: 1px solid rgb(90, 89, 89);
+    padding: 2px;
 }

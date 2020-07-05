@@ -38,7 +38,7 @@ export function updateShopping(id, update, emailDetials) {
           "success",
           false,
           "Your message was sent. Thank you.",
-          2500
+          3500
         )
       );
     } catch (error) {

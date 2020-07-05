@@ -3,7 +3,11 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { shopping } from "../store/shopping/actions";
 
-import { clearMessage } from "../store/appState/actions";
+import {
+  clearMessage,
+  setMessage,
+  showMessageWithTimeout,
+} from "../store/appState/actions";
 import { selectUser } from "../store/user/selectors";
 import { selectShoppingListId } from "../store/shopping/selectors";
 import { selectMessage } from "../store/appState/selectors";
@@ -21,26 +25,65 @@ export default function ShoppingLists() {
   // console.log("THE VALUE SUCCESS MESSAGE : ", appSuccessMessage);
 
   const dispatch = useDispatch();
+  const today1 = new Date();
 
   // this funciton is to sumbit the request from the senior citizen.
   function submit(event) {
     event.preventDefault();
+    //dispatch(clearMessage());
 
     // this dispatch is used to clear the app state error message.
-    dispatch(clearMessage());
-    const lists = { category, list, userId: user.id, requiredBy };
-    console.log("LISTS", lists);
 
-    // this dispatch is used to send post data request to backend server
-    dispatch(shopping(lists));
-    console.log("ShoppingListId", shoppingListsId.id);
+    const lists = { category, list, userId: user.id, requiredBy };
+    console.log("LISTS", lists, " Lenght : ", requiredBy);
+
+    let datetime;
+    if (requiredBy !== 0) {
+      datetime =
+        (new Date(requiredBy.split("T")[0]).getTime() - today1.getTime()) /
+        (1000 * 3600 * 24);
+      console.log("Difference in Time", datetime);
+    }
+
+    // *****************
+    if (!category || !list || requiredBy === 0 || !user.id) {
+      dispatch(setMessage("danger", true, "Fill the mandatoary fields"));
+    } else if (requiredBy === undefined || requiredBy == "") {
+      dispatch(
+        setMessage("danger", true, "Date Field is not filled correctly ")
+      );
+    } else if (
+      // validation check for dates
+
+      datetime < 2 ||
+      datetime > 30
+    ) {
+      dispatch(
+        setMessage(
+          "danger",
+          true,
+          "Request  date start date should be  min 2 days and maximum 30 days to current date"
+        )
+      );
+    } else {
+      // this dispatch is used to send post data request to backend server
+      dispatch(shopping(lists));
+      dispatch(
+        showMessageWithTimeout(
+          "success",
+          false,
+          "Your Request has submitted successfully",
+          2500
+        )
+      );
+    }
   }
 
   // // this condition is to navigate to shopping details on successfully submission
 
   if (appSuccessMessage != null && appSuccessMessage.dismissable === false) {
-    history.push("/myrequest");
-    console.log("THIS CODE IS EXECUTED ");
+    history.push("./myrequest");
+    //console.log("THIS CODE IS EXECUTED ");
   }
   const today = new Date().toISOString().split(":");
   return (

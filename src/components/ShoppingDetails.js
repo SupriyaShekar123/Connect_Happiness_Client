@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getShoppingDetails } from "../store/shopping/actions";
 import { selectShoppingLists } from "../store/shopping/selectors";
 import { selectUser } from "../store/user/selectors";
+import { clearMessage, setMessage } from "../store/appState/actions";
 
 export default function ShoppingDetails() {
   const shoppinglists = useSelector(selectShoppingLists);
@@ -28,6 +29,7 @@ export default function ShoppingDetails() {
       </div>
     );
   }
+  //dispatch(clearMessage());
 
   return (
     <div className='div_shoppingdetails_main_div'>
