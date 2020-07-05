@@ -1,6 +1,7 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
 import { selectToken } from "./selectors";
+import { clearShoopingDetails } from "../shoppingDetails/actions";
 import {
   appLoading,
   appDoneLoading,
@@ -25,7 +26,14 @@ const tokenStillValid = (userWithoutToken) => ({
   payload: userWithoutToken,
 });
 
-export const logOut = () => ({ type: LOG_OUT });
+// export const logOut = () => ({ type: LOG_OUT });
+
+export function logOut() {
+  return async (dispatch, getState) => {
+    dispatch(clearShoopingDetails());
+    dispatch({ type: LOG_OUT });
+  };
+}
 
 export const signUp = (singupdata) => {
   console.log("Dispatch data ", singupdata);

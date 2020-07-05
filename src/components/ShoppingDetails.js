@@ -49,35 +49,36 @@ export default function ShoppingDetails() {
           <th>Request End date</th>
           <th>Status</th>
         </tr>
-        {shoppinglists.map((lists) => {
-          return (
-            <tr key={lists.id}>
-              <td>
-                <Link to={`/shoppingDetails/${lists.id}`}>
-                  {lists.user.name}
-                </Link>
-              </td>
+        {shoppinglists.length !== 0 &&
+          shoppinglists.map((lists) => {
+            return (
+              <tr key={lists.id}>
+                <td>
+                  <Link to={`/shoppingDetails/${lists.id}`}>
+                    {lists.user.name}
+                  </Link>
+                </td>
 
-              <td>
-                {lists.user.house_num} , {lists.user.street} ,
-                {lists.user.postcode}, {lists.user.city}
-              </td>
-              <td>{lists.category}</td>
-              <td>{lists.list}</td>
+                <td>
+                  {lists.user.house_num} , {lists.user.street} ,
+                  {lists.user.postcode}, {lists.user.city}
+                </td>
+                <td>{lists.category}</td>
+                <td>{lists.list}</td>
 
-              <td>
-                {new Intl.DateTimeFormat("en-FB", {
-                  year: "numeric",
-                  month: "long",
-                  day: "2-digit",
-                  // hour: "numeric",
-                  // minute: "numeric",
-                }).format(Date.parse(lists.requiredBy))}{" "}
-              </td>
-              <td>{lists.status}</td>
-            </tr>
-          );
-        })}
+                <td>
+                  {new Intl.DateTimeFormat("en-FB", {
+                    year: "numeric",
+                    month: "long",
+                    day: "2-digit",
+                    // hour: "numeric",
+                    // minute: "numeric",
+                  }).format(Date.parse(lists.requiredBy))}{" "}
+                </td>
+                <td>{lists.status}</td>
+              </tr>
+            );
+          })}
       </table>
     </div>
   );

@@ -85,3 +85,9 @@ export function confirmMail(emailDetials) {
     }
   };
 }
+
+export function clearShoopingDetails() {
+  return async (dispatch, getState) => {
+    dispatch({ type: "CLEAR_SHOPING_DETAILS" });
+  };
+}

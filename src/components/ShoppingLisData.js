@@ -37,84 +37,89 @@ export default function ShoppingLisData() {
 
   return (
     <div className='div_shoppingDetails'>
-      <div className='div_border'>
-        {shoppingDetails.map((details) => {
-          return (
-            <div className='div_shopping_details_values' key={details.id}>
-              <div className='div_left'>
-                <p className='p_shopping_details_values_left'>
-                  <b>RequestedBy</b>
-                </p>
-              </div>
-              <div className='div_right'>
-                <p>: {details.user.name}</p>
-              </div>
-              <div className='div_left'>
-                <p>
-                  <b>Request Type</b>
-                </p>
-              </div>
-              <div className='div_right'>
-                <p>: {details.category}</p>
-              </div>
-
-              <div className='div_left'>
-                <p>
-                  <b>Request Details</b>
-                </p>
-              </div>
-              <div className='div_right'>
-                <p>: {details.list}</p>
-              </div>
-
-              <div className='div_left'>
-                <p className='p_shopping_details_values_left'>
-                  <b>Address</b>
-                </p>
-              </div>
-              <div className='div_right'>
-                <p>
-                  : {details.user.house_num} , {details.user.street} ,
-                  {details.user.postcode},{details.user.city}
-                </p>
-              </div>
-
-              <div className='div_left'>
-                <p>
-                  <b>Phone</b>
-                </p>
-              </div>
-              <div className='div_right'>
-                <p>: {details.user.phone}</p>
-              </div>
-              <div className='div_left'>
-                <p>
-                  <b>Email</b>
-                </p>
-              </div>
-              <div className='div_right'>
-                <p>: {details.user.email}</p>
-              </div>
-            </div>
-          );
-        })}
-        <div>
+      {!shoppingDetails ? (
+        <div>loading ...</div>
+      ) : (
+        <div className='div_border'>
           {shoppingDetails.map((details) => {
-            if (details.status !== "close") {
-              return (
-                <div>
-                  <Link to='/message'>
-                    <button className='btn_shopping_detils_connect'>
-                      {/* // onClick={updateData}> */}
-                      Send Message
-                    </button>
-                  </Link>
+            console.log("shoppingDetails>>>>>", details.user);
+            return (
+              <div className='div_shopping_details_values' key={details.id}>
+                <div className='div_left'>
+                  <p className='p_shopping_details_values_left'>
+                    <b>RequestedBy</b>
+                  </p>
                 </div>
-              );
-            }
+                <div className='div_right'>
+                  <p>: {details.user.name}</p>
+                </div>
+                <div className='div_left'>
+                  <p>
+                    <b>Request Type</b>
+                  </p>
+                </div>
+                <div className='div_right'>
+                  <p>{details.category}</p>
+                </div>
+
+                <div className='div_left'>
+                  <p>
+                    <b>Request Details</b>
+                  </p>
+                </div>
+                <div className='div_right'>
+                  <p>: {details.list}</p>
+                </div>
+
+                <div className='div_left'>
+                  <p className='p_shopping_details_values_left'>
+                    <b>Address</b>
+                  </p>
+                </div>
+                <div className='div_right'>
+                  <p>
+                    : {details.user.house_num} , {details.user.street} ,
+                    {details.user.postcode},{details.user.city}
+                  </p>
+                </div>
+
+                <div className='div_left'>
+                  <p>
+                    <b>Phone</b>
+                  </p>
+                </div>
+                <div className='div_right'>
+                  <p>: {details.user.phone}</p>
+                </div>
+                <div className='div_left'>
+                  <p>
+                    <b>Email</b>
+                  </p>
+                </div>
+                <div className='div_right'>
+                  <p>: {details.user.email}</p>
+                </div>
+              </div>
+            );
           })}
+          <div>
+            {shoppingDetails.map((details) => {
+              if (details.status !== "close") {
+                return (
+                  <div>
+                    <Link to='/message'>
+                      <button className='btn_shopping_detils_connect'>
+                        {/* // onClick={updateData}> */}
+                        Send Message
+                      </button>
+                    </Link>
+                  </div>
+                );
+              }
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

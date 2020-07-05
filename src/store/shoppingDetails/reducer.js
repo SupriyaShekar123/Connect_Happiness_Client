@@ -45,6 +45,16 @@ export default (state = initialState, action) => {
         confirmMail: action.payload,
       };
     }
+
+    case "CLEAR_SHOPING_DETAILS": {
+      console.log("LOGOUT Reducer");
+
+      return {
+        ...state,
+        loading: false,
+        details: [],
+      };
+    }
     default:
       return state;
   }

@@ -17,9 +17,10 @@ export default function ShoppingDetails() {
     dispatch(clearMessage());
   }, [dispatch, id]);
 
-  if (!shoppinglists) {
-    return <div>loading...</div>;
-  }
+  // console.log(shoppinglists.length, " Length of shopping lists ");
+  // if (shoppinglists.length !== 0 || shoppinglists !== null) {
+  //   return <div>loading...</div>;
+  // }
 
   return (
     <div className='div_shoppingdetails_main_div'>
@@ -38,33 +39,37 @@ export default function ShoppingDetails() {
             {/* <th>Details</th> */}
           </tr>
         </thead>
-        {shoppinglists.map((lists) => {
-          const requestList = lists.shoppinglists.map((shopping) => {
-            return (
-              <tbody key={shopping.id}>
-                <tr>
-                  <td>{lists.name}</td>
-                  <td>
-                    {lists.house_num} , {lists.street} ,{lists.postcode},{" "}
-                    {lists.city}
-                  </td>
-                  <td>{shopping.category}</td>
-                  <td>{shopping.list}</td>
+        {!shoppinglists ? (
+          <div>loading</div>
+        ) : (
+          shoppinglists.map((lists) => {
+            const requestList = lists.shoppinglists.map((shopping) => {
+              return (
+                <tbody key={shopping.id}>
+                  <tr>
+                    <td>{lists.name}</td>
+                    <td>
+                      {lists.house_num} , {lists.street} ,{lists.postcode},{" "}
+                      {lists.city}
+                    </td>
+                    <td>{shopping.category}</td>
+                    <td>{shopping.list}</td>
 
-                  <td>
-                    {new Intl.DateTimeFormat("en-FB", {
-                      year: "numeric",
-                      month: "long",
-                      day: "2-digit",
-                    }).format(Date.parse(shopping.requiredBy))}{" "}
-                  </td>
-                  <td>{shopping.status}</td>
-                </tr>
-              </tbody>
-            );
-          });
-          return requestList;
-        })}
+                    <td>
+                      {new Intl.DateTimeFormat("en-FB", {
+                        year: "numeric",
+                        month: "long",
+                        day: "2-digit",
+                      }).format(Date.parse(shopping.requiredBy))}{" "}
+                    </td>
+                    <td>{shopping.status}</td>
+                  </tr>
+                </tbody>
+              );
+            });
+            return requestList;
+          })
+        )}
       </table>
     </div>
   );
