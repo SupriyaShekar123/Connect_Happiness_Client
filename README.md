@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Connect Happiness ![alt text][logo.png]
 
-## Available Scripts
+:exclamation: Click [HERE]() to check out the deployed version :exclamation:
 
-In the project directory, you can run:
+## INTRO
 
-### `npm start`
+👋 Hi! I am Supriya, and this is my portfolio project - web application called Connect-Happiness. Please notice, this is MVP, not a final version. I implemented the most important features, rest will be added in the future.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### What this app about?
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+It is about local people helping their neighbours to enjoy a better quality of life. Connect_Happiness help create an environment where people feel safe and secure because they have genuine connection with one another,they are aimed primarily at helping elderly, disabled, vulnerable, frail or isolated people.
 
-### `npm test`
+### What this app does?
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This App allows senior citizens to ask help from volunteer's for shopping assistance or clean the garden,etc .
+It also allows seniorCitizens to organise events to which other people can join.
 
-### `npm run build`
+### App Demo
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Goals for this project
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The goal of this project is to build a full-stack app using new technologies (see above) _not taught in the bootcamp_. I learned these new tools by reading documentations and watching tutorial videos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- practice full-stack development
+- practice learning new technology independently
+- apply what we learned in the bootcamp
+- showcase development approach of using wireframes and user stories
+- practice disciplined git usage
 
-### `npm run eject`
+## Technology used in building this site
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+:eyes::point_down: **Click links to see samples in this project** :point_down::eyes:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [React](https://github.com/SupriyaShekar123/Connect_Happiness_Client/blob/development/src/App.js)
+- [Redux](https://github.com/SupriyaShekar123/Connect_Happiness_Client/tree/development/src/store)
+- [Express](https://github.com/SupriyaShekar123/Connect_Happiness_Server/blob/master/index.js)
+- [RESTAPI](https://github.com/SupriyaShekar123/Connect_Happiness_Server/tree/master/routers)
+- [Sequelize](https://github.com/SupriyaShekar123/Connect_Happiness_Server/tree/master/migrations)
+- [React-Bootstrap](https://github.com/SupriyaShekar123/Connect_Happiness_Client/blob/development/src/pages/Login/index.js)
+- [nodeMailer](https://github.com/SupriyaShekar123/Connect_Happiness_Server/blob/master/routers/nodeMailer.js):star:
+- [nodecron](https://github.com/SupriyaShekar123/Connect_Happiness_Server/blob/master/index.js) :star:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+:star: _New technology learned during this project_
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### User Stories:
 
-## Learn More
+As a User I want to be able to navigate to different pages so I can find the information I am looking for.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+As a User I should be able to login to use one of the services.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+As a new user I want to be able to Sign Up.
 
-### Code Splitting
+As a seniorCitizen I should be able to submit my requests.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+As a Volunteer if any of the seniorCitizens wants help, I should be notified on my email. .
 
-### Analyzing the Bundle Size
+As a Volunteer I should be able to accept the request.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+As seniorCitizen I should be able to get details of the Volunteer who is helping and I should get his details.
 
-### Making a Progressive Web App
+As a user I should be able to Join one of the events.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+As a seniorCitizen I want to Organize event so that other people can join.
 
-### Advanced Configuration
+### `Link to Wire frame`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+https://wireframepro.mockflow.com/view/M162b179c507749c32574af89f1f4753b1592222587592#/page/15645272d0914f26a9b5c60208178ba6
 
-### Deployment
+### `Link to Project Task Board`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+https://github.com/SupriyaShekar123/Connect_Happiness_Client/projects/1?add_cards_query=is%3Aopen
 
-### `npm run build` fails to minify
+### `Link to data Module`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+https://app.lucidchart.com/documents/view/bdec9e0b-f218-4e7c-9c5b-b2987393e6a1/0_0
+
+## Git workflow
+
+In this project I try to use:
+
+- Good commit messages
+- Well named branches
+- Pull requests with summaries
+
+## Server-repo
+
+The server side of this project is an Express server connected to a Sequelize database. [Click here for more details](https://github.com/SupriyaShekar123/Connect_Happiness_Server)
