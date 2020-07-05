@@ -24,6 +24,7 @@ export async function getShoppingDetails(dispatch, getstate) {
 
 export function shopping(lists, history) {
   // console.log(" ShoppingLists ", lists);
+
   const { category, list, userId, requiredBy } = lists;
 
   if (!category || !list || !userId || !requiredBy) {
@@ -41,7 +42,7 @@ export function shopping(lists, history) {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      console.log("SHOPPING REQUES DATA : ===== : ", response.data);
       dispatch({ type: "LISTS_SUCCESS", payload: response.data });
 
       const shoppingID = { spid: response.data.id };
@@ -55,6 +56,7 @@ export function shopping(lists, history) {
           2500
         )
       );
+      history.push("/myrequest");
 
       //dispatch(appDoneLoading());
     } catch (error) {

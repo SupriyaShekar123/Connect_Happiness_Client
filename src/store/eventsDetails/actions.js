@@ -85,12 +85,12 @@ export function removeUser(id) {
 }
 
 export function createEvents(eventFormDetails) {
-  console.log(" Create EVENTS .... ", eventFormDetails);
+  // console.log(" Create EVENTS .... ", eventFormDetails);
 
   const { title, detail, imageUrl, date, location, userId } = eventFormDetails;
 
   if (!title || !detail || !imageUrl || !date || !location || !userId) {
-    console.log("SHOPPING VALIDATATION : ", eventFormDetails);
+    // console.log("SHOPPING VALIDATATION : ", eventFormDetails);
 
     return async (dispatch, getState) => {
       dispatch(setMessage("danger", true, "Fill the mandatoary fields"));

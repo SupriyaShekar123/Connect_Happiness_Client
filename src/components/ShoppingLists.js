@@ -35,14 +35,14 @@ export default function ShoppingLists() {
     // this dispatch is used to clear the app state error message.
 
     const lists = { category, list, userId: user.id, requiredBy };
-    console.log("LISTS", lists, " Lenght : ", requiredBy);
+    // console.log("LISTS", lists, " Lenght : ", requiredBy);
 
     let datetime;
     if (requiredBy !== 0) {
       datetime =
         (new Date(requiredBy.split("T")[0]).getTime() - today1.getTime()) /
         (1000 * 3600 * 24);
-      console.log("Difference in Time", datetime);
+      // console.log("Difference in Time", datetime);
     }
 
     // *****************
@@ -67,7 +67,7 @@ export default function ShoppingLists() {
       );
     } else {
       // this dispatch is used to send post data request to backend server
-      dispatch(shopping(lists));
+      dispatch(shopping(lists, history));
       dispatch(
         showMessageWithTimeout(
           "success",
@@ -81,10 +81,10 @@ export default function ShoppingLists() {
 
   // // this condition is to navigate to shopping details on successfully submission
 
-  if (appSuccessMessage != null && appSuccessMessage.dismissable === false) {
-    history.push("./myrequest");
-    //console.log("THIS CODE IS EXECUTED ");
-  }
+  // if (appSuccessMessage != null && appSuccessMessage.dismissable === false) {
+  //   history.push("/myrequest");
+  //   //console.log("THIS CODE IS EXECUTED ");
+  // }
   const today = new Date().toISOString().split(":");
   return (
     <div className='shopping_form'>

@@ -22,7 +22,7 @@ export const getShoppingDetails = (id) => {
   };
 };
 
-export function updateShopping(id, update, emailDetials) {
+export function updateShopping(id, update, emailDetials, history) {
   // console.log(" UPDATE SHOPPING : ", update, "Id is", id);
   return async (dispatch, getState) => {
     //const token = selectToken(getState());
@@ -41,6 +41,7 @@ export function updateShopping(id, update, emailDetials) {
           3500
         )
       );
+      history.push("/shoppingDetails");
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
@@ -54,7 +55,6 @@ export function updateShopping(id, update, emailDetials) {
 }
 
 export const getUserRequestDetails = (id) => {
-  console.log("USER ID FOR SHOPPEING ", id);
   return async (dispatch, getState) => {
     dispatch({ type: "SHOPPING_DETAIL_LOADING" });
     try {

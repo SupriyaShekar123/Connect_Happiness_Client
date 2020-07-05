@@ -66,8 +66,8 @@ export default function Message() {
         "Email Details ",
         emailDetails
       );
-      dispatch(updateShopping(userId[0].id, update, emailDetails));
-      history.push("/shoppingDetails");
+      dispatch(updateShopping(userId[0].id, update, emailDetails, history));
+      //history.push("/shoppingDetails");
     }
   }
   return (
