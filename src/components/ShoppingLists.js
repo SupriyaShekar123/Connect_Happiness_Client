@@ -48,7 +48,7 @@ export default function ShoppingLists() {
     // *****************
     if (!category || !list || requiredBy === 0 || !user.id) {
       dispatch(setMessage("danger", true, "Fill the mandatoary fields"));
-    } else if (requiredBy === undefined || requiredBy == "") {
+    } else if (requiredBy === undefined || requiredBy === "") {
       dispatch(
         setMessage("danger", true, "Date Field is not filled correctly ")
       );

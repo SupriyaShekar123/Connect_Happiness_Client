@@ -26,37 +26,41 @@ export default function ShoppingDetails() {
       <div className='div_shooping_req_heading'>My Requests</div>
 
       <table className='request_table'>
-        <tr>
-          <th>Name</th>
-          <th>Address</th>
-          <th>Request Type</th>
-          <th>Request Details</th>
-          <th>Request End date</th>
-          <th>Status</th>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Request Type</th>
+            <th>Request Details</th>
+            <th>Request End date</th>
+            <th>Status</th>
 
-          {/* <th>Details</th> */}
-        </tr>
+            {/* <th>Details</th> */}
+          </tr>
+        </thead>
         {shoppinglists.map((lists) => {
           const requestList = lists.shoppinglists.map((shopping) => {
             return (
-              <tr key={shopping.id}>
-                <td>{lists.name}</td>
-                <td>
-                  {lists.house_num} , {lists.street} ,{lists.postcode},{" "}
-                  {lists.city}
-                </td>
-                <td>{shopping.category}</td>
-                <td>{shopping.list}</td>
+              <tbody key={shopping.id}>
+                <tr>
+                  <td>{lists.name}</td>
+                  <td>
+                    {lists.house_num} , {lists.street} ,{lists.postcode},{" "}
+                    {lists.city}
+                  </td>
+                  <td>{shopping.category}</td>
+                  <td>{shopping.list}</td>
 
-                <td>
-                  {new Intl.DateTimeFormat("en-FB", {
-                    year: "numeric",
-                    month: "long",
-                    day: "2-digit",
-                  }).format(Date.parse(shopping.requiredBy))}{" "}
-                </td>
-                <td>{shopping.status}</td>
-              </tr>
+                  <td>
+                    {new Intl.DateTimeFormat("en-FB", {
+                      year: "numeric",
+                      month: "long",
+                      day: "2-digit",
+                    }).format(Date.parse(shopping.requiredBy))}{" "}
+                  </td>
+                  <td>{shopping.status}</td>
+                </tr>
+              </tbody>
             );
           });
           return requestList;

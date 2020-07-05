@@ -18,7 +18,7 @@ export default function OurServices() {
     <div className='div_ourservices'>
       {eventLists.map((events) => {
         return (
-          <div className='div_inner_details'>
+          <div className='div_inner_details' key={events.id}>
             <Link to={`/events/${events.id}`}>
               <div className='event_title'>{events.title}</div>
               <div className='div_ourservice_image'>

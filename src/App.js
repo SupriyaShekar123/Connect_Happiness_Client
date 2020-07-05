@@ -42,14 +42,12 @@ function App() {
   return (
     <div className='App'>
       {/* <SSEClient /> */}
-
       <Navigation />
       <MessageBox />
-
       {isLoading ? <Loading /> : null}
-
       <Switch>
         {/* <Route exact path='/sse' component={SSEClient} /> */}
+
         <Route exact path='/' component={Home} />
 
         {/* <Route path='/signup' component={SignUp} /> */}

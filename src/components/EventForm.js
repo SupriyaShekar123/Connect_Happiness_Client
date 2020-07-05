@@ -87,7 +87,9 @@ export default function EventForm() {
   return (
     <div className='div_main_event_form'>
       <div className='div_inner_event_form'>
-        <div class='div_shooping_req_heading'>Provide Details for Event</div>
+        <div className='div_shooping_req_heading'>
+          Provide Details for Event
+        </div>
         <form>
           <div className='div_event_left'>
             <label>Title</label>
