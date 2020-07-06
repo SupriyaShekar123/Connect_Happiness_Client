@@ -17,10 +17,8 @@ It also allows seniorCitizens to organise events to which other people can join.
 
 ### App Demo
 
-![connect_happiness1_Homepage](https://github.com/ewa-mi/book-app-client/blob/master/attachments/homepage.png)
-![connect_happiness2]
-![connect_happiness3]
-![connect_happiness4]
+![connect_happiness1_Homepage](https://github.com/SupriyaShekar123/Connect_Happiness_Client/blob/master/src/images/Homepage.png)
+![connect_happiness2_Eventspage](https://github.com/SupriyaShekar123/Connect_Happiness_Client/blob/master/src/images/Events.png)
 
 ## Goals for this project
 
