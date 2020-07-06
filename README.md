@@ -1,6 +1,6 @@
 ### Connect Happiness ![alt text][logo.png]
 
-:exclamation: Click [HERE]() to check out the deployed version :exclamation:
+:exclamation: Click [HERE](https://distracted-gates-8839f7.netlify.app/) to check out the deployed version :exclamation:
 
 ## INTRO
 
@@ -16,6 +16,11 @@ This App allows senior citizens to ask help from volunteer's for shopping assist
 It also allows seniorCitizens to organise events to which other people can join.
 
 ### App Demo
+
+![connect_happiness1_Homepage](https://github.com/ewa-mi/book-app-client/blob/master/attachments/homepage.png)
+![connect_happiness2]
+![connect_happiness3]
+![connect_happiness4]
 
 ## Goals for this project
 
